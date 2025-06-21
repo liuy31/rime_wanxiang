@@ -1,13 +1,6 @@
 ---
-_自6.0起，请不要克隆和下载仓库，仓库涵盖8种辅助码，除非你知道自己在做什么。我在release做了分包处理，你可以在最新的版本号下载到正式的方案库，可以在每夜词库更新获得最新的词库和模型更新，小幅度微调我也会直接在最新的release update
-区别是辅助码无需配置了而是通过选择下载来确认词库携带的辅助码，体积更小！_
----
 
-
-
-# 万象系列方案——双拼辅助码增强版(全拼用户移步标准版) [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/amzxyz/rime_wanxiang_pro)
-
-本方案为万象双拼辅助码增强版   [>>万象标准版,支持同文9、14、18键](https://github.com/amzxyz/rime_wanxiang)  
+# 万象系列方案 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/amzxyz/rime_wanxiang_pro)
 
 ---------------------
 
