@@ -55,28 +55,34 @@ function CF.get_comment(cand, env)
 
     local raw = dict:lookup(cand.text)
     if raw == "" then return "" end
-    -- 若无 ◉ 分隔符，直接返回整体
-    if not string.find(raw, "◉") then
-        return raw
-    end
-    -- 拆分段落
-    local segments = {}
-    for seg in string.gmatch(raw .. "◉", "(.-)◉") do
-        table.insert(segments, seg)
-    end
-    -- 辅助码类型映射到段索引
-    local index_map = {
-        zrm = 1,
-        moqi = 2,
-        flypy = 3,
-        hanxin = 4,
-        jdh = 5
+
+    -- 辅助码类型 → 圈字映射
+    local mark_map = {
+        hanxin = "Ⓐ",
+        jdh    = "Ⓑ",
+        tiger  = "Ⓒ",
+        flypy  = "Ⓓ",
+        moqi   = "Ⓔ",
+        zrm    = "Ⓕ",
+        wubi   = "Ⓖ"
     }
     local fuzhu_type = env.settings.fuzhu_type or ""
-    local idx = index_map[fuzhu_type]
-    if not idx then return "" end
-    -- 若该段超出范围或为空，返回空字符串
-    return segments[idx] or ""
+    local mark = mark_map[fuzhu_type]
+    if not mark then return raw end  -- 如果没有匹配的圈字，返回整个 raw
+
+    -- 拆分各字注释段（按空格、或用 %s 拆分多个注释块）
+    local segments = {}
+    for segment in raw:gmatch("[^%s]+") do
+        table.insert(segments, segment)
+    end
+    -- 遍历查找包含指定圈字的片段
+    for _, seg in ipairs(segments) do
+        if seg:find(mark, 1, true) then
+            -- 去除圈字标志，返回剩余内容
+            return seg:gsub(mark, "", 1)
+        end
+    end
+    return raw  -- 如果没有任何片段含圈字，也返回原始内容
 end
 
 -- #########################

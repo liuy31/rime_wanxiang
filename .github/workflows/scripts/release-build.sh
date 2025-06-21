@@ -33,6 +33,7 @@ package_schema_base() {
         name="$(basename "$item")"
         if [[ "$name" =~ ^\. ]]; then continue; fi
         if [[ "$name" == "pro-"*-fuzhu-dicts ]]; then continue; fi
+        if [[ "$name" == "lookup" ]]; then continue; fi 
         if [[ "$name" == "wanxiang_pro.dict.yaml" || "$name" == "wanxiang_pro.schema.yaml" ]]; then continue; fi
         if [[ "$name" == "wanxiang_lookup.dict.yaml" || "$name" == "wanxiang_lookup.schema.yaml" ]]; then continue; fi
         if [[ "$name" == "wanxiang_charset.dict.yaml" || "$name" == "wanxiang_charset.schema.yaml" ]]; then continue; fi
@@ -65,8 +66,7 @@ package_schema_pro() {
     if [[ -f "$LOOKUP_SRC" ]]; then
         cp "$LOOKUP_SRC" "$LOOKUP_DST"
         sed -i "s/^name:\s*wanxiang_lookup_${SCHEMA_NAME}$/name: wanxiang_lookup/" "$LOOKUP_DST"
-    else
-        echo "⚠️ 未找到 $LOOKUP_SRC，跳过 lookup 文件处理" >&2
+        sed -i 's/[ⒶⒷⒸⒹⒺⒻ]//g' "$LOOKUP_DST"
     fi
 
     # 3. 复制 schema 主文件
@@ -84,6 +84,7 @@ package_schema_pro() {
         name="$(basename "$item")"
         if [[ "$name" =~ ^\. ]]; then continue; fi
         if [[ "$name" == "pro-"*-fuzhu-dicts ]]; then continue; fi
+        if [[ "$name" == "lookup" ]]; then continue; fi
         if [[ "$name" == "wanxiang.dict.yaml" || "$name" == "wanxiang.schema.yaml" ]]; then continue; fi
         if [[ "$name" == "zh_dicts" ]]; then continue; fi
         if [[ -e "$OUT_DIR/$name" ]]; then continue; fi
