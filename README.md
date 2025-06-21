@@ -4,8 +4,6 @@
 
 ---------------------
 
-[为什么默认关闭调频的说明](https://github.com/amzxyz/RIME-LMDG/wiki/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%85%B3%E9%97%AD%E8%B0%83%E9%A2%91%E4%BB%A5%E5%8F%8A%E4%B8%8E%E4%B9%8B%E5%85%B3%E8%81%94%E7%9A%84%E6%8E%AA%E6%96%BD%E6%9C%89%E5%93%AA%E4%BA%9B)   ```enable_user_dict: false # 是否开启自动调频，true为开启```
-
 ## 万象拼音——基于深度优化的词库和语言模型
 
 [万象词库与万象语言模型](https://github.com/amzxyz/RIME-LMDG) 是一种带声调的词库，经过AI和大基数语料筛选、加频，结合语言模型获得更准确的整句输出。还结合了中英文混输，一套词库，多种用法，具体可以点击链接了解优势
@@ -40,6 +38,8 @@
 [oh my rime](https://www.mintimate.cc/zh/guide/installRime.html) 
 
 [rime参数配置](https://xishansnow.github.io/posts/41ac964d.html)
+
+[为什么PRO版本默认关闭调频的说明](https://github.com/amzxyz/RIME-LMDG/wiki/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%85%B3%E9%97%AD%E8%B0%83%E9%A2%91%E4%BB%A5%E5%8F%8A%E4%B8%8E%E4%B9%8B%E5%85%B3%E8%81%94%E7%9A%84%E6%8E%AA%E6%96%BD%E6%9C%89%E5%93%AA%E4%BA%9B)   ```enable_user_dict: false # 是否开启自动调频，true为开启```
 
 整个rime配置生态都是通的，里面有非常完整的使用方法，(诸如放到哪里、换个皮肤、什么是用户目录。。。)我不想重复造轮子，如果看完了还能想起万象，欢迎来到你的进阶之旅！
 
