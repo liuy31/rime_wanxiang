@@ -4,10 +4,9 @@ set -e
 
 ROOT_DIR="$(cd "$(dirname "$0")/../../../" && pwd)"
 DIST_DIR="$ROOT_DIR/dist"
-CUSTOM_DIR="$ROOT_DIR/custom"
 
 # 成成 PRO 分包文件
-python3 "$CUSTOM_DIR/万象分包.py"
+python3 "$ROOT_DIR/.github/workflows/scripts/万象分包.py"
 echo "✅ PRO 完成: 生成完毕"
 echo
 
@@ -18,7 +17,7 @@ package_schema_base() {
 
     # 1. 拷贝 custom/ 下除 wanxiang_pro.custom* 外的所有 yaml、md、jpg、ng 文件
     mkdir -p "$OUT_DIR"/custom
-    find "$CUSTOM_DIR" -type f \( -name "*.yaml" -o -name "*.md" -o -name "*.jpg" -o -name "*.png" \) \
+    find "$ROOT_DIR/custom" -type f \( -name "*.yaml" -o -name "*.md" -o -name "*.jpg" -o -name "*.png" \) \
         ! -name "wanxiang_pro.custom*" -exec cp {} "$OUT_DIR"/custom \;
 
     # 2. 拷贝根目录下除指定内容外的文件/文件夹
@@ -49,14 +48,14 @@ package_schema_pro() {
     fi
 
     # 2. 生成 lookup-方案名.yaml 并重命名
-    python3 "$CUSTOM_DIR/lookup分包.py" "$SCHEMA_NAME"
+    python3 "$ROOT_DIR/.github/workflows/scripts/lookup分包.py" "$SCHEMA_NAME"
     if [[ -f "$ROOT_DIR/wanxiang_lookup_$SCHEMA_NAME.dict.yaml" ]]; then
         mv "$ROOT_DIR/wanxiang_lookup_$SCHEMA_NAME.dict.yaml" "$OUT_DIR/wanxiang_lookup.dict.yaml"
     fi
 
     # 3. 拷贝 custom/ 下除 wanxiang.custom.yaml 外的所有 yaml、md、jpg、ng 文件
     mkdir -p "$OUT_DIR"/custom
-    find "$CUSTOM_DIR" -type f \( -name "*.yaml" -o -name "*.md" -o -name "*.jpg" -o -name "*.png" \) \
+    find "$ROOT_DIR/custom" -type f \( -name "*.yaml" -o -name "*.md" -o -name "*.jpg" -o -name "*.png" \) \
         ! -name "wanxiang.custom.yaml" -exec cp {} "$OUT_DIR"/custom \;
 
     # 4. 拷贝根目录下除指定内容外的文件/文件夹

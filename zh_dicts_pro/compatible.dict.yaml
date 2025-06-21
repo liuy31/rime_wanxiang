@@ -108,10 +108,10 @@ sort: by_weight
 看好他	kàn;uo;uo;ou,uo;us;uq;rh;pm hǎo;nz;nz;nz;ya;bh;vb;nz tā;ry;ry;ry;xr;je;wb;ry	403
 还回去吧	huán;zb;zb;zb;dq;cu;gi;zb huí;kk;kk;kk;no;rd;lk;wk qù;ts;ts;ts;gp;gk;fc;tv ba;kb;kb;kb;ot;dm;kc;kb	255
 还回去吧	hái;zb;zb;zb;dq;cu;gi;zb huí;kk;kk;kk;no;rd;lk;wk qù;ts;ts;ts;gp;gk;fc;tv ba;kb;kb;kb;ot;dm;kc;kb	255
-还回去吗	huán;zb;zb;zb;dq;cu;gi;zb huí;kk;kk;kk;no;rd;lk;wk qù;ts;ts;ts;gp;gk;fc;tv ma;km;kk;km;oz;dn;kc;km	247
-还回去吗	hái;zb;zb;zb;dq;cu;gi;zb huí;kk;kk;kk;no;rd;lk;wk qù;ts;ts;ts;gp;gk;fc;tv ma;km;kk;km;oz;dn;kc;km	247
-还回来吗	hái;zb;zb;zb;dq;cu;gi;zb huí;kk;kk;kk;no;rd;lk;wk lái;am;an;am,wb;dl;ah;go;an ma;km;kk;km;oz;dn;kc;km	178
-还回来吗	huán;zb;zb;zb;dq;cu;gi;zb huí;kk;kk;kk;no;rd;lk;wk lái;am;an;am,wb;dl;ah;go;an ma;km;kk;km;oz;dn;kc;km	19
+还回去吗	huán;zb;zb;zb;dq;cu;gi;zb huí;kk;kk;kk;no;rd;lk;wk qù;ts;ts;ts;gp;gk;fc;tv ma;km;km;km;oz;dn;kc;km	247
+还回去吗	hái;zb;zb;zb;dq;cu;gi;zb huí;kk;kk;kk;no;rd;lk;wk qù;ts;ts;ts;gp;gk;fc;tv ma;km;km;km;oz;dn;kc;km	247
+还回来吗	hái;zb;zb;zb;dq;cu;gi;zb huí;kk;kk;kk;no;rd;lk;wk lái;am;an;am,wb;dl;ah;go;an ma;km;km;km;oz;dn;kc;km	178
+还回来吗	huán;zb;zb;zb;dq;cu;gi;zb huí;kk;kk;kk;no;rd;lk;wk lái;am;an;am,wb;dl;ah;go;an ma;km;km;km;oz;dn;kc;km	19
 还回来了	huán;zb;zb;zb;dq;cu;gi;zb huí;kk;kk;kk;no;rd;lk;wk lái;am;an;am,wb;dl;ah;go;an le;al;vl;aa,vu;rp;rl;bn;vv	368
 还回来了	hái;zb;zb;zb;dq;cu;gi;zb huí;kk;kk;kk;no;rd;lk;wk lái;am;an;am,wb;dl;ah;go;an le;al;vl;aa,vu;rp;rl;bn;vv	255
 还回来啊	huán;zb;zb;zb;dq;cu;gi;zb huí;kk;kk;kk;no;rd;lk;wk lái;am;an;am,wb;dl;ah;go;an a;kk;kk;ka;oj;dz;kb;kk	77
@@ -802,7 +802,7 @@ sort: by_weight
 是这的	shì;oz;or;op,ov;ve;ot;jg;or zhèi;zw;zw;zw;jq;vu;yp;zx de;bu;bu;bu;sh;ui;rq;bu	411
 是这个	shì;oz;or;op,ov;ve;ot;jg;or zhèi;zw;zw;zw;jq;vu;yp;zx ge;rl;rl;ra,pa;ep;jg;wh;ra	708
 是这话	shì;oz;or;op,ov;ve;ot;jg;or zhèi;zw;zw;zw;jq;vu;yp;zx huà;yu;yk;yu;co;sa;yt;yk	169
-是这吗	shì;oz;or;op,ov;ve;ot;jg;or zhèi;zw;zw;zw;jq;vu;yp;zx ma;km;kk;km;oz;dn;kc;km	354
+是这吗	shì;oz;or;op,ov;ve;ot;jg;or zhèi;zw;zw;zw;jq;vu;yp;zx ma;km;km;km;oz;dn;kc;km	354
 使这些	shǐ;rl;rl;rl;xy;jb;wg;rl zhèi;zw;zw;zw;jq;vu;yp;zx xiē;ve;ve;ec;ru;sm;hx;ve	482
 是这样	shì;oz;or;op,ov;ve;ot;jg;or zhèi;zw;zw;zw;jq;vu;yp;zx yàng;my;my;my;wp;eg;su;ly	736
 是这种	shì;oz;or;op,ov;ve;ot;jg;or zhèi;zw;zw;zw;jq;vu;yp;zx zhǒng;hv;hv;hv;up;xg;tk;hv	608
@@ -1229,7 +1229,7 @@ sort: by_weight
 这个龙	zhèi;zw;zw;zw;jq;vu;yp;zx ge;rl;rl;ra,pa;ep;jg;wh;ra lóng;yp;ul;ad;sh;tl;dx;ab	255
 这个楼	zhèi;zw;zw;zw;jq;vu;yp;zx ge;rl;rl;ra,pa;ep;jg;wh;ra lóu;mn;mn;ml;wy;eb;so;ln	397
 这个嘛	zhèi;zw;zw;zw;jq;vu;yp;zx ge;rl;rl;ra,pa;ep;jg;wh;ra ma;km;km;km;ow;dz;ky;kl	478
-这个吗	zhèi;zw;zw;zw;jq;vu;yp;zx ge;rl;rl;ra,pa;ep;jg;wh;ra ma;km;kk;km;oz;dn;kc;km	456
+这个吗	zhèi;zw;zw;zw;jq;vu;yp;zx ge;rl;rl;ra,pa;ep;jg;wh;ra ma;km;km;km;oz;dn;kc;km	456
 这个忙	zhèi;zw;zw;zw;jq;vu;yp;zx ge;rl;rl;ra,pa;ep;jg;wh;ra máng;xw;xw;xw;nr;hf;ny;xw	400
 这哥们	zhèi;zw;zw;zw;jq;vu;yp;zx gē;kk;dk;kd,kk,dk;jj;zz;sk;ak men;rm;rm;rm;xo;ja;wu;rm	554
 这个门	zhèi;zw;zw;zw;jq;vu;yp;zx ge;rl;rl;ra,pa;ep;jg;wh;ra mén;dv;dv;dg;oo;am;uy;dv	421
@@ -1491,7 +1491,7 @@ sort: by_weight
 这里就	zhèi;zw;zw;zw;jq;vu;yp;zx lǐ;tt;la;aa,tt;vg;dl;jf;aa jiù;wy;wy;yj;ih;go;yi;wy	635
 这里来	zhèi;zw;zw;zw;jq;vu;yp;zx lǐ;tt;la;aa,tt;vg;dl;jf;aa lái;am;an;am,wb;dl;ah;go;an	513
 这里连	zhèi;zw;zw;zw;jq;vu;yp;zx lǐ;tt;la;aa,tt;vg;dl;jf;aa lián;zi;zi;zi;tq;yu;lp;zi	350
-这里吗	zhèi;zw;zw;zw;jq;vu;yp;zx lǐ;tt;la;aa,tt;vg;dl;jf;aa ma;km;kk;km;oz;dn;kc;km	394
+这里吗	zhèi;zw;zw;zw;jq;vu;yp;zx lǐ;tt;la;aa,tt;vg;dl;jf;aa ma;km;km;km;oz;dn;kc;km	394
 这里买	zhèi;zw;zw;zw;jq;vu;yp;zx lǐ;tt;la;aa,tt;vg;dl;jf;aa mǎi;ad;vd;at,vt;rx;am;nu;vd	572
 这里没	zhèi;zw;zw;zw;jq;vu;yp;zx lǐ;tt;la;aa,tt;vg;dl;jf;aa méi;du;dy;du;kl;kr;im;dy	457
 这里面	zhèi;zw;zw;zw;jq;vu;yp;zx lǐ;tt;la;aa,tt;vg;dl;jf;aa miàn;ao;aa;aa;du;bm;dm;aa	665
@@ -1818,7 +1818,7 @@ sort: by_weight
 这些货	zhèi;zw;zw;zw;jq;vu;yp;zx xiē;ve;ve;ec;ru;sm;hx;ve huò;rb;rr;bh;xm;jo;wx;rr	339
 这些课	zhèi;zw;zw;zw;jq;vu;yp;zx xiē;ve;ve;ec;ru;sm;hx;ve kè;yg;yg;yg;cw;se;yj;yg	414
 这些料	zhèi;zw;zw;zw;jq;vu;yp;zx xiē;ve;ve;ec;ru;sm;hx;ve liào;md;mu;md;lh;pj;ou;mu	288
-这些吗	zhèi;zw;zw;zw;jq;vu;yp;zx xiē;ve;ve;ec;ru;sm;hx;ve ma;km;kk;km;oz;dn;kc;km	430
+这些吗	zhèi;zw;zw;zw;jq;vu;yp;zx xiē;ve;ve;ec;ru;sm;hx;ve ma;km;km;km;oz;dn;kc;km	430
 这些年	zhèi;zw;zw;zw;jq;vu;yp;zx xiē;ve;ve;ec;ru;sm;hx;ve nián;pf;pl;ra,pa;es;ev;rh;pa	678
 这些票	zhèi;zw;zw;zw;jq;vu;yp;zx xiē;ve;ve;ec;ru;sm;hx;ve piào;xu;xx;xu;pf;vf;sf;xx	331
 这些钱	zhèi;zw;zw;zw;jq;vu;yp;zx xiē;ve;ve;ec;ru;sm;hx;ve qián;jj;jj;jj;da;zp;qg;jg	596
@@ -1880,7 +1880,7 @@ sort: by_weight
 这样来	zhèi;zw;zw;zw;jq;vu;yp;zx yàng;my;my;my;wp;eg;su;ly lái;am;an;am,wb;dl;ah;go;an	483
 这样类	zhèi;zw;zw;zw;jq;vu;yp;zx yàng;my;my;my;wp;eg;su;ly lèi;md;md;md;lx;pm;od;md	169
 这样聊	zhèi;zw;zw;zw;jq;vu;yp;zx yàng;my;my;my;wp;eg;su;ly liáo;ee;ee;em;db;qb;bq;ee	222
-这样吗	zhèi;zw;zw;zw;jq;vu;yp;zx yàng;my;my;my;wp;eg;su;ly ma;km;kk;km;oz;dn;kc;km	569
+这样吗	zhèi;zw;zw;zw;jq;vu;yp;zx yàng;my;my;my;wp;eg;su;ly ma;km;km;km;oz;dn;kc;km	569
 这样嘛	zhèi;zw;zw;zw;jq;vu;yp;zx yàng;my;my;my;wp;eg;su;ly ma;km;km;km;ow;dz;ky;kl	415
 这样能	zhèi;zw;zw;zw;jq;vu;yp;zx yàng;my;my;my;wp;eg;su;ly néng;sb;sb;sb;pa;kv;ce;vb	533
 这样哦	zhèi;zw;zw;zw;jq;vu;yp;zx yàng;my;my;my;wp;eg;su;ly ó;kw;kw;kw;oa;dp;kt;kg	363
@@ -2537,7 +2537,7 @@ sort: by_weight
 熟烂时	shóu;wh;wh;hu;in;gc;yb;we làn;hl;hs;hl;tu;ct;ou;hs shí;oc;oc;oc;vk;ok;jf;oc	67
 熟了吧	shóu;wh;wh;hu;in;gc;yb;we le;al;vl;aa,vu;rp;rl;bn;vv ba;kb;kb;kb;ot;dm;kc;kb	232
 熟了后	shóu;wh;wh;hu;in;gc;yb;we le;al;vl;aa,vu;rp;rl;bn;vv hòu;ik;pk;pk;uo;xd;rg;pk	166
-熟了吗	shóu;wh;wh;hu;in;gc;yb;we le;al;vl;aa,vu;rp;rl;bn;vv ma;km;kk;km;oz;dn;kc;km	102
+熟了吗	shóu;wh;wh;hu;in;gc;yb;we le;al;vl;aa,vu;rp;rl;bn;vv ma;km;km;km;oz;dn;kc;km	102
 熟了么	shóu;wh;wh;hu;in;gc;yb;we le;al;vl;aa,vu;rp;rl;bn;vv me;ps;ps;ps;up;tk;tc;pv	76
 熟了没	shóu;wh;wh;hu;in;gc;yb;we le;al;vl;aa,vu;rp;rl;bn;vv méi;du;dy;du;kl;kr;im;dy	113
 熟梨糕	shóu;wh;wh;hu;in;gc;yb;we lí;hm;hm;ml;uw;xe;tj;hl gāo;mh;mh;mg;ln;pc;ou;me	119
@@ -2607,7 +2607,7 @@ sort: by_weight
 熟悉很	shóu;wh;wh;hu;in;gc;yb;we xī;cx;px;xm,xb;hn;th;to;px hěn;rg;ig;xg;hh;wi;tv;rh	81
 熟悉后	shóu;wh;wh;hu;in;gc;yb;we xī;cx;px;xm,xb;hn;th;to;px hòu;ik;pk;pk;uo;xd;rg;pk	200
 熟悉了	shóu;wh;wh;hu;in;gc;yb;we xī;cx;px;xm,xb;hn;th;to;px le;al;vl;aa,vu;rp;rl;bn;vv	341
-熟悉吗	shóu;wh;wh;hu;in;gc;yb;we xī;cx;px;xm,xb;hn;th;to;px ma;km;kk;km;oz;dn;kc;km	180
+熟悉吗	shóu;wh;wh;hu;in;gc;yb;we xī;cx;px;xm,xb;hn;th;to;px ma;km;km;km;oz;dn;kc;km	180
 熟悉你	shóu;wh;wh;hu;in;gc;yb;we xī;cx;px;xm,xb;hn;th;to;px nǐ;rx;rx;re;xf;jy;wq;rx	168
 熟悉人	shóu;wh;wh;hu;in;gc;yb;we xī;cx;px;xm,xb;hn;th;to;px rén;pn;pn;pd;ee;jr;ww;pn	123
 熟悉时	shóu;wh;wh;hu;in;gc;yb;we xī;cx;px;xm,xb;hn;th;to;px shí;oc;oc;oc;vk;ok;jf;oc	119
@@ -2691,7 +2691,7 @@ sort: by_weight
 眼熟啊	yǎn;og;og;og;sh;qi;hv;mh shóu;wh;wh;hu;in;gc;yb;we a;kk;kk;ka;oj;dz;kb;kk	141
 眼熟吧	yǎn;og;og;og;sh;qi;hv;mh shóu;wh;wh;hu;in;gc;yb;we ba;kb;kb;kb;ot;dm;kc;kb	170
 眼熟了	yǎn;og;og;og;sh;qi;hv;mh shóu;wh;wh;hu;in;gc;yb;we le;al;vl;aa,vu;rp;rl;bn;vv	135
-眼熟吗	yǎn;og;og;og;sh;qi;hv;mh shóu;wh;wh;hu;in;gc;yb;we ma;km;kk;km;oz;dn;kc;km	168
+眼熟吗	yǎn;og;og;og;sh;qi;hv;mh shóu;wh;wh;hu;in;gc;yb;we ma;km;km;km;oz;dn;kc;km	168
 养不熟	yǎng;yl;yl;ya,yd;fp;gp;ud;ea bù;ab;ad;ad,ax;dh;cb;gi;ad shóu;wh;wh;hu;in;gc;yb;we	139
 也不熟	yě;vv;vv;gg;rr;ey;bn;vv bù;ab;ad;ad,ax;dh;cb;gi;ad shóu;wh;wh;hu;in;gc;yb;we	234
 也熟了	yě;vv;vv;gg;rr;ey;bn;vv shóu;wh;wh;hu;in;gc;yb;we le;al;vl;aa,vu;rp;rl;bn;vv	83
@@ -3040,7 +3040,7 @@ sort: by_weight
 是谁教	shì;oz;or;op,ov;ve;ot;jg;or shéi;yv;yf;yv;ca;su;yw;ya jiào;lw;lw;wx;gj;qh;ft;uw	223
 是谁来	shì;oz;or;op,ov;ve;ot;jg;or shéi;yv;yf;yv;ca;su;yw;ya lái;am;an;am,wb;dl;ah;go;an	346
 是谁了	shì;oz;or;op,ov;ve;ot;jg;or shéi;yv;yf;yv;ca;su;yw;ya le;al;vl;aa,vu;rp;rl;bn;vv	449
-是谁吗	shì;oz;or;op,ov;ve;ot;jg;or shéi;yv;yf;yv;ca;su;yw;ya ma;km;kk;km;oz;dn;kc;km	468
+是谁吗	shì;oz;or;op,ov;ve;ot;jg;or shéi;yv;yf;yv;ca;su;yw;ya ma;km;km;km;oz;dn;kc;km	468
 是谁呢	shì;oz;or;op,ov;ve;ot;jg;or shéi;yv;yf;yv;ca;su;yw;ya ne;kb;kb;kn;oa;dv;kn;kb	528
 是谁让	shì;oz;or;op,ov;ve;ot;jg;or shéi;yv;yf;yv;ca;su;yw;ya ràng;yu;yu;yu;cd;sf;yh;yu	331
 是谁人	shì;oz;or;op,ov;ve;ot;jg;or shéi;yv;yf;yv;ca;su;yw;ya rén;pn;pn;pd;ee;jr;ww;pn	190
@@ -4169,7 +4169,7 @@ sort: by_weight
 这是谁的	zhè;zw;zw;zw;jq;vu;yp;zx shì;oz;or;op,ov;ve;ot;jg;or shéi;yv;yf;yv;ca;su;yw;ya de;bu;bu;bu;sh;ui;rq;bu	505
 这是谁啦	zhè;zw;zw;zw;jq;vu;yp;zx shì;oz;or;op,ov;ve;ot;jg;or shéi;yv;yf;yv;ca;su;yw;ya la;kl;kl;kl;ob;di;kr;kl	1
 这是谁了	zhè;zw;zw;zw;jq;vu;yp;zx shì;oz;or;op,ov;ve;ot;jg;or shéi;yv;yf;yv;ca;su;yw;ya le;al;vl;aa,vu;rp;rl;bn;vv	92
-这是谁吗	zhè;zw;zw;zw;jq;vu;yp;zx shì;oz;or;op,ov;ve;ot;jg;or shéi;yv;yf;yv;ca;su;yw;ya ma;km;kk;km;oz;dn;kc;km	235
+这是谁吗	zhè;zw;zw;zw;jq;vu;yp;zx shì;oz;or;op,ov;ve;ot;jg;or shéi;yv;yf;yv;ca;su;yw;ya ma;km;km;km;oz;dn;kc;km	235
 这是谁呀	zhè;zw;zw;zw;jq;vu;yp;zx shì;oz;or;op,ov;ve;ot;jg;or shéi;yv;yf;yv;ca;su;yw;ya ya;ky;ky;ky;ou;dl;ka;ky	334
 这谁家娃	zhè;zw;zw;zw;jq;vu;yp;zx shéi;yv;yf;yv;ca;su;yw;ya jiā;bu;bu;bu;ih;wj;pe;gn wá;nt;nt;ng;yg;bg;vf;nt	1
 这谁说话	zhè;zw;zw;zw;jq;vu;yp;zx shéi;yv;yf;yv;ca;su;yw;ya shuō;yx;ye;yd;ck;sp;yu;ye huà;yu;yk;yu;co;sa;yt;yk	1
