@@ -364,4 +364,4 @@ __patch:
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=amzxyz/RIME-LMDG,amzxyz/rime_wanxiang,amzxyz/rime_wanxiang_pro&type=Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=amzxyz/RIME-LMDG,amzxyz/rime_wanxiang&type=Date)
