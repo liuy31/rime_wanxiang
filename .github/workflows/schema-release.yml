@@ -128,7 +128,7 @@ jobs:
               \) \
               ! -iname "wanxiang_pro*" \
               ! -iname "wanxiang_lookup*" \
-              ! -iname "wanxiang_charset*" \
+            #  ! -iname "wanxiang_charset*" \
               ! -iname "wanxiang.dict.yaml" \
               ! -iname "wanxiang.schema.yaml" \
               ! -iname "default.yaml" \
