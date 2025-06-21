@@ -46,7 +46,7 @@ jobs:
           # 删除 wanxiang_pro 行
           sed -i '/^[[:space:]]*- schema: wanxiang_pro$/d' default.yaml
 
-          ROOT_FILES=$(find . -maxdepth 1 -type f \( -iname "*.yaml" -o -iname "*.txt" -o -iname "*.ini" -o -iname "*.md" -o -iname "*.png" -o -iname "*.jpg" \) \
+          ROOT_FILES=$(find . -maxdepth 1 -type f \( -iname "*.yaml" -o -iname "*.txt" -o -iname "*.ini" -o -iname "*.md" -o -iname "*.png" -o -iname "*.jpg" -o -iname "*.db" \) \
           ! -iname "wanxiang_pro*" ! -iname "wanxiang_lookup*" ! -iname "wanxiang_charset*" ! -iname "default.yaml" ! -iname "default.backup.yaml")
 
           zip -r dist/rime-wanxiang-base.zip \
@@ -124,7 +124,7 @@ jobs:
 
             echo "🗃 合并根目录的通用文件"
             find . -maxdepth 1 -type f \( \
-              -iname "*.yaml" -o -iname "*.txt" -o -iname "*.md" -o -iname "*.png" -o -iname "*.jpg" -o -iname "*.db" -o -iname "*.ini" \
+              -iname "*.yaml" -o -iname "*.txt" -o -iname "*.md" -o -iname "*.png" -o -iname "*.jpg" -o -iname "*.db" -o -iname "*.ini" -o -iname "*.db" \
               \) \
               ! -iname "wanxiang_pro*" \
               ! -iname "wanxiang_lookup*" \
