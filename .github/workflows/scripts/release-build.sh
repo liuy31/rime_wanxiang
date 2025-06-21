@@ -53,15 +53,20 @@ package_schema_pro() {
     rm -rf "$OUT_DIR"
     mkdir -p "$OUT_DIR"
 
-    # 1. 生成 pro-方案名-fuzhu-dicts 并重命名为 zh_dicts_pro
+    # 1. 将 pro-方案名-fuzhu-dicts 移动为 zh_dicts_pro
     if [[ -d "$ROOT_DIR/pro-$SCHEMA_NAME-fuzhu-dicts" ]]; then
         mv "$ROOT_DIR/pro-$SCHEMA_NAME-fuzhu-dicts" "$OUT_DIR/zh_dicts_pro"
     fi
 
-    # 2. 生成 lookup-方案名.yaml 并重命名
-    python3 "$ROOT_DIR/.github/workflows/scripts/lookup分包.py" "$SCHEMA_NAME"
-    if [[ -f "$ROOT_DIR/wanxiang_lookup_$SCHEMA_NAME.dict.yaml" ]]; then
-        mv "$ROOT_DIR/wanxiang_lookup_$SCHEMA_NAME.dict.yaml" "$OUT_DIR/wanxiang_lookup.dict.yaml"
+    # 2. 从 lookup 文件夹中复制对应文件并重命名
+    LOOKUP_SRC="$ROOT_DIR/lookup/wanxiang_lookup_${SCHEMA_NAME}.dict.yaml"
+    LOOKUP_DST="$OUT_DIR/wanxiang_lookup.dict.yaml"
+
+    if [[ -f "$LOOKUP_SRC" ]]; then
+        cp "$LOOKUP_SRC" "$LOOKUP_DST"
+        sed -i "s/^name:\s*wanxiang_lookup_${SCHEMA_NAME}$/name: wanxiang_lookup/" "$LOOKUP_DST"
+    else
+        echo "⚠️ 未找到 $LOOKUP_SRC，跳过 lookup 文件处理" >&2
     fi
 
     # 3. 复制 schema 主文件
@@ -69,12 +74,12 @@ package_schema_pro() {
         cp "$CUSTOM_DIR/预设分包方案.yaml" "$OUT_DIR/wanxiang_pro.schema.yaml"
     fi
 
-    # 3. 拷贝 custom/ 下除 wanxiang.custom.yaml 外的所有 yaml、md、jpg、ng 文件
+    # 4. 拷贝 custom/ 下除 wanxiang.custom.yaml 外的所有 yaml、md、jpg、png 文件
     mkdir -p "$OUT_DIR"/custom
     find "$ROOT_DIR/custom" -type f \( -name "*.yaml" -o -name "*.md" -o -name "*.jpg" -o -name "*.png" \) \
         ! \( -name "wanxiang.custom*" -o -name "预设分包方案.yaml" \) -exec cp {} "$OUT_DIR"/custom \;
 
-    # 4. 拷贝根目录下除指定内容外的文件/文件夹
+    # 5. 拷贝根目录下除指定内容外的文件/文件夹
     for item in "$ROOT_DIR"/*; do
         name="$(basename "$item")"
         if [[ "$name" =~ ^\. ]]; then continue; fi
@@ -87,9 +92,10 @@ package_schema_pro() {
         cp -r "$item" "$OUT_DIR/"
     done
 
-    # 5. 修改 default.yaml，删除 schema_list: 中的 - schema: wanxiang
+    # 6. 修改 default.yaml，删除 schema_list 中的 - schema: wanxiang
     remove_schema wanxiang "$OUT_DIR"
 }
+
 
 package_schema() {
     SCHEMA_NAME="$1"
