@@ -66,7 +66,7 @@ package_schema_pro() {
     if [[ -f "$LOOKUP_SRC" ]]; then
         cp "$LOOKUP_SRC" "$LOOKUP_DST"
         sed -i "s/^name:\s*wanxiang_lookup_${SCHEMA_NAME}$/name: wanxiang_lookup/" "$LOOKUP_DST"
-        sed -i 's/[ⒶⒷⒸⒹⒺⒻ]//g' "$LOOKUP_DST"
+        sed -i 's/[ⒶⒷⒸⒹⒺⒻⒼ]//g' "$LOOKUP_DST"
     fi
 
     # 3. 复制 schema 主文件
