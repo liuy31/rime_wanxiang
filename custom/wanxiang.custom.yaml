@@ -1,11 +1,8 @@
 #使用之前请详细遍历每一行，都注释了功能点，看清楚是不是你要的，需不需要修改参数，哪些该留，哪些该删除，够语重心长了吧😄
-zrm_youhua:
-  - xform/^(aj|ak|al|ob|ez|ef)(\d?)(;.*)$//   #释放一些拼写运算多余的不符合自然码规则的编码，为中英混输留出空间
 patch:
   speller/algebra:
     __patch:
       - wanxiang.schema:/自然码            # 可选输入方案名称：全拼, 自然码, 自然龙, 小鹤双拼, 搜狗双拼, 微软双拼, 智能ABC, 紫光双拼, 国标双拼
-      #- zrm_youhua #释放一些拼写运算多余的不符合自然码规则的编码，为中英混输留出空间
 
   # 中英混合词汇，要与你的双拼类型一样
   cn_en/user_dict: en_dicts/zrm           # 可选的值有：en_dicts/pinyin， en_dicts/zrm， en_dicts/flypy ，en_dicts/mspy， en_dicts/sogou
