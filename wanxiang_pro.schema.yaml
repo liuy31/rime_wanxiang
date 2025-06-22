@@ -540,6 +540,7 @@ speller:
     - xform/^ch/Ⓘ/
     - xform/^zh/Ⓥ/
     - xlit/ⓆⓌⓇⓉⓎⓊⒾⓄⓅⓈⒹⒻⒼⒽⓂⒿⒸⓀⓁⓏⓍⓋⒷⓃ/qwrtyuiopsdfghmjcklzxvbn/
+    - xform/^(aj|ak|al|ob|ez|ef)(\\d?)(;.*)$//   # 释放非原本自然码规则
 自然龙:    #原作者项目地址： https://github.com/rimeinn/rime-zrlong
   __append:
     - xform/^ēr/eQ/
