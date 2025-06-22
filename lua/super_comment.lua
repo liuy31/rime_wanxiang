@@ -225,7 +225,7 @@ local function get_fz_comment(cand, env, initial_comment)
             return ""
         end
     end
-    -- 最终拼接输出，fuzhu用 `/`，tone用 空格连接
+    -- 最终拼接输出，fuzhu用 `,`，tone用 空格连接
     if #fuzhu_comments > 0 then
         if fuzhu_type == "tone" then
             return table.concat(fuzhu_comments, " ")
@@ -248,84 +248,76 @@ function ZH.init(env)
     env.settings = {
         delimiter = delimiter,
         auto_delimiter = auto_delimiter,
-        corrector_enabled = config:get_bool("super_comment/corrector") or true,                -- 错音错词提醒功能
-        corrector_type = config:get_string("super_comment/corrector_type") or "{comment}",     -- 提示类型
-        candidate_length = tonumber(config:get_string("super_comment/candidate_length")) or 1, -- 候选词长度
-        fuzhu_type = config:get_string("super_comment/fuzhu_type") or ""                       -- 辅助码类型
+        corrector_enabled = config:get_bool("super_comment/corrector") or true,
+        corrector_type = config:get_string("super_comment/corrector_type") or "{comment}",
+        candidate_length = tonumber(config:get_string("super_comment/candidate_length")) or 1,
+        fuzhu_type = config:get_string("super_comment/fuzhu_type") or ""
     }
     CR.init(env)
 end
-
 function ZH.fini(env)
     -- 清理
     CF.fini(env)
 end
-
 function ZH.func(input, env)
     local is_radical_mode = wanxiang.is_in_radical_mode(env)
-    local ctx = env.engine.context
-    local input_str = ctx.input
-    local should_skip = input_str and input_str:match("^[VRNU/]")
-
-    -- 注释拼接器
-    local function merge_comments(a, b)
-        if a and a ~= "" then
-            if b and b ~= "" then return a .. " / " .. b end
-            return a
-        end
-        return b or ""
-    end
+    local index = 0
+    local input_str = env.engine.context.input
+    local should_skip_candidate_comment = input_str and input_str:match("^[VRNU/]")
+    local is_fuzhu_enabled   = env.engine.context:get_option("comment_hint")
+    local is_chaifen_enabled = env.engine.context:get_option("chaifen_switch")
 
     for cand in input:iter() do
-        if should_skip then
+        index = index + 1
+        if should_skip_candidate_comment then
             yield(cand)
-        else
-            local initial = cand.comment
-            local final = initial
-            local len = utf8.len(cand.text)
-
-            -- 1. 错音错词（最高优先）
-            if env.settings.corrector_enabled then
-                local cr = CR.get_comment(cand)
-                if cr and cr ~= "" then
-                    cand:get_genuine().comment = cr
-                    yield(cand)
-                    goto continue
-                end
-            end
-
-            -- 2. 部件组字模式
-            if is_radical_mode then
-                local az = get_az_comment(cand, env, initial)
-                if az and az ~= "" then
-                    cand:get_genuine().comment = az
-                    yield(cand)
-                    goto continue
-                end
-            end
-
-            -- 3. 拆分辅助码（不限词长）
-            local cf = nil
-            if ctx:get_option("chaifen_switch") then
-                cf = CF.get_comment(cand, env)
-            end
-
-            -- 4. 辅助码（多字词才启用）
-            local fz = nil
-            if ctx:get_option("comment_hint") and len > 1 then
-                fz = get_fz_comment(cand, env, initial)
-            end
-
-            -- 5. 合并注释
-            final = merge_comments(cf, fz)
-
-            if final and final ~= initial then
-                cand:get_genuine().comment = final
-            end
-            yield(cand)
+            goto continue
         end
+
+        local initial_comment = cand.comment
+        local final_comment = initial_comment
+
+        -- ① 辅助码注释
+        if is_fuzhu_enabled then
+            local fz_comment = get_fz_comment(cand, env, initial_comment)
+            if fz_comment then
+                final_comment = fz_comment
+            end
+        else
+            final_comment = ""
+        end
+
+        -- ② 拆分注释
+        if is_chaifen_enabled then
+            local cf_comment = CF.get_comment(cand, env)
+            if cf_comment and cf_comment ~= "" then  --不为空很重要
+                final_comment = cf_comment
+            end
+        end
+
+        -- ③ 错音错字提示
+        if env.settings.corrector_enabled then
+            local cr_comment = CR.get_comment(cand)
+            if cr_comment and cr_comment ~= "" then
+                final_comment = cr_comment
+            end
+        end
+
+        -- ④ radical 模式提示
+        if is_radical_mode then
+            local az_comment = get_az_comment(cand, env, initial_comment)
+            if az_comment and az_comment ~= "" then
+                final_comment = az_comment
+            end
+        end
+
+        -- 应用注释
+        if final_comment ~= initial_comment then
+            cand:get_genuine().comment = final_comment
+        end
+
+        yield(cand)
         ::continue::
     end
 end
-
 return ZH
