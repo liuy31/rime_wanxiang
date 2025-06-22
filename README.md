@@ -1,6 +1,6 @@
 ---
 
-# 万象系列方案 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/amzxyz/rime_wanxiang_pro)
+# 万象系列方案 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/amzxyz/rime_wanxiang)
 
 ---------------------
 
