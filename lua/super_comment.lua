@@ -223,7 +223,7 @@ local function get_fz_comment(cand, env, initial_comment)
             return ""
         end
     end
-
+    -- 最终拼接输出，fuzhu用 `,`，tone用 /连接
     if #fuzhu_comments > 0 then
         if fuzhu_type == "tone" then
             return table.concat(fuzhu_comments, " ")
