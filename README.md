@@ -52,16 +52,22 @@
 1. 打开`wanxiang.schema.yaml`文件，表头按照提示进行3个维度的选择，定义属于自己的输入法方案
 
     ```yaml
-    #本方案匹配词库解码顺序为：全拼拼音；墨奇；鹤形；自然码；简单鹤；仓颉首末；虎码首末；五笔前2；汉心码
+    #本方案匹配词库解码顺序为：全拼拼音；墨奇；鹤形；自然码；简单鹤；虎码首末；五笔前2；汉心码
     #############DIY你想要的方案组合,试试搭配一个自然码+墨奇辅助的方案吧！###########################
-    set_shuru_schema:         #配置此项就是选择什么输入法,同时拆分反查和中英文混输也将匹配该输入方案
-      __include: algebra_zrm  #可选解码规则有   algebra_pinyin, algebra_zrm, algebra_flypy, algebra_ziguang, algebra_sogou, algebra_mspy, algebra_abc  选择一个填入
-    set_algebra_fuzhu:        #配置此项就是选择什么辅助码，分包版本无需配置此项
-      __include: fuzhu_zrm    #可选辅助码有：fuzhu_kong，fuzhu_moqi, fuzhu_zrm, fuzhu_flypy, jdh, cj, fuzhu_tiger, fuzhu_wubi, fuzhu_hanxin 选择一个填入
-    pro_comment_format:       # 超级注释模块，子项配置 true 开启，false 关闭
-      candidate_length: 1     # 候选词辅助码提醒的生效长度，0为关闭  但同时清空其它，应当使用上面开关来处理
-      fuzhu_type: zrm         # 用于匹配对应的辅助码注释显示，基于默认词典的可选注释类型有：(tone, moqi, flypy, zrm, jdh, cj, tiger, wubi, hanxin)选择一个填入，之所以单独列出是因为这里有更多的可配置性，而真正的辅助码默认只有7种
-      corrector_type: "{comment}"  # 换一种显示类型，比如"({comment})" 
+set_shuru_schema:              #配置此项就是选择什么输入法,同时拆分反查和中英文混输也将匹配该输入方案
+  __include: 自然码             #可选解码规则有   自然码, 自然龙, 汉心龙, 小鹤双拼, 搜狗双拼, 微软双拼, 智能ABC, 紫光双拼, 国标双拼， 龙三    选择一个填入
+set_algebra_fuzhu:             #配置此项就是选择什么辅助码
+  __include: fuzhu_zrm         #可选辅助码有：fuzhu_kong，fuzhu_hanxin, fuzhu_moqi, fuzhu_flypy, fuzhu_zrm, fuzhu_tiger, fuzhu_wubi    选择一个填入
+set_fuzhu_type:                #直接辅助就是nire/=你，间接辅助就是ni/re=你，区别在于间接辅助不使用/引导的时候就和普通双拼没区别
+  __include: 直接辅助           #可选的有：直接辅助、间接辅助
+set_cn_en:                     #中英混输
+  user_dict: en_dicts/pinyin   #可选的值有：en_dicts/pinyin， en_dicts/zrm， en_dicts/flypy ，en_dicts/mspy， en_dicts/sogou， en_dicts/pinyin
+super_comment:                 # 超级注释模块，子项配置 true 开启，false 关闭
+  candidate_length: 1          # 候选词辅助码提醒的生效长度，0为关闭  但同时清空其它，应当使用上面开关来处理    
+  fuzhu_type: zrm              # 用于匹配对应的辅助码注释显示，基于默认词典的可选注释类型有：moqi, flypy, zrm, jdh, cj, tiger, wubi, hanxin 声调用开关切换
+  corrector_type: "{comment}"  # 换一种显示类型，比如"({comment})" 
+__include: octagram            #启用语言模型
+#__include: set_chord_composer  #启用并击处理，不懂得不要开启就是了
     ########################以下是方案配置######################################################
     ```
 
@@ -69,8 +75,8 @@
 
     ```yaml
     ###############选择与之匹配的拼音方案#####################
-    set_shuru_schema:
-      __include: algebra_zrm#可选的选项有（algebra_pinyin, algebra_zrm, algebra_flypy, algebra_mspy, algebra_sogou, algebra_abc, algebra_ziguang）
+set_shuru_schema:
+  __include: 全拼    #可选的选项有（全拼, 自然码, 小鹤双拼, 微软双拼, 搜狗双拼, 智能ABC, 紫光双拼, 拼音加加）
     ######################################################
     ```
 
