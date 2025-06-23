@@ -14,9 +14,10 @@
 --  candidate_length: 1              # 候选词辅助码提醒的生效长度，0为关闭  但同时清空其它，应当使用上面开关来处理
 --  corrector: true                  # 启用错音错词提醒，例如输入 geiyu 给予 获得 jǐ yǔ 提示
 --  corrector_type: "{comment}"      # 新增一个提示类型，比如"【{comment}】"
-
+--  comment_type: moqi, flypy, zrm, jdh, tiger, wubi, hanxin tone fuzhu(分包使用时代表整体分号后面)
 local wanxiang = require('wanxiang')
 local patterns = {
+    fuzhu = "[^;];(.+)$",
     tone = "([^;]*);",
     moqi = "[^;]*;([^;]*);",
     flypy = "[^;]*;[^;]*;([^;]*);",
@@ -66,8 +67,8 @@ function CF.get_comment(cand, env)
         zrm    = "Ⓕ",
         wubi   = "Ⓖ"
     }
-    local fuzhu_type = env.settings.fuzhu_type or ""
-    local mark = mark_map[fuzhu_type]
+    local comment_type = env.settings.comment_type or ""
+    local mark = mark_map[comment_type]
     if not mark then return raw end  -- 如果没有匹配的圈字，返回整个 raw
 
     -- 拆分各字注释段（按空格、或用 %s 拆分多个注释块）
@@ -161,7 +162,7 @@ local function get_az_comment(_, env, initial_comment)
             fz = segment:match(";(.+)$")
         else
             -- 多个分号，使用模式提取
-            local pattern = patterns[env.settings.fuzhu_type]
+            local pattern = patterns[env.settings.comment_type]
             if pattern then
                 fz = segment:match(pattern)
             end
@@ -194,7 +195,7 @@ local function get_fz_comment(cand, env, initial_comment)
     for segment in string.gmatch(initial_comment, "[^" .. auto_delimiter .. "]+") do
         table.insert(segments, segment)
     end
-    local fuzhu_type = env.settings.fuzhu_type
+    local comment_type = env.settings.comment_type
     -- 只用第一个片段来计算分号数量
     local first_segment = segments[1] or ""
     local semicolon_count = select(2, first_segment:gsub(";", ""))
@@ -203,17 +204,9 @@ local function get_fz_comment(cand, env, initial_comment)
     if semicolon_count == 0 then
         -- 第三种情况：无分号，直接输出原始注释（空格连接）匹配标准版的release版本
         return initial_comment:gsub(auto_delimiter, " ")
-    elseif semicolon_count == 1 then
-        -- 第二种情况：一个分号，提取其后内容,匹配pro的release版本
-        for _, segment in ipairs(segments) do
-            local match = segment:match(";(.+)$")
-            if match then
-                table.insert(fuzhu_comments, match)
-            end
-        end
     else
-        -- 第一种情况：多个分号，依 fuzhu_type 使用对应 pattern 匹配,匹配pro的仓库版本
-        local pattern = patterns[fuzhu_type]
+        -- 第一种情况：多个分号，依 comment_type 使用对应 pattern 匹配,匹配pro的仓库版本
+        local pattern = patterns[comment_type]
         if pattern then
             for _, segment in ipairs(segments) do
                 local match = segment:match(pattern)
@@ -227,7 +220,7 @@ local function get_fz_comment(cand, env, initial_comment)
     end
     -- 最终拼接输出，fuzhu用 `,`，tone用 空格连接
     if #fuzhu_comments > 0 then
-        if fuzhu_type == "tone" then
+        if comment_type == "tone" then
             return table.concat(fuzhu_comments, " ")
         else
             return table.concat(fuzhu_comments, "/")
@@ -251,7 +244,7 @@ function ZH.init(env)
         corrector_enabled = config:get_bool("super_comment/corrector") or true,
         corrector_type = config:get_string("super_comment/corrector_type") or "{comment}",
         candidate_length = tonumber(config:get_string("super_comment/candidate_length")) or 1,
-        fuzhu_type = config:get_string("super_comment/fuzhu_type") or ""
+        comment_type = config:get_string("super_comment/comment_type") or ""
     }
     CR.init(env)
 end
