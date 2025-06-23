@@ -20,18 +20,14 @@ local function wrapLevelDb(dbname, mode)
         end
     end
 
-    if db then
-        if not db:loaded() then
-            if mode then
-                db:open()
-            else -- 只读模式
-                db:open_read_only()
-            end
-        elseif mode then
-            -- 仅在首次打开读写模式返回 db 实例
-            -- 其他情况返回 nil，避免多个实例同时写
-            return nil, close
+    if db and not db:loaded() then
+        if mode then
+            db:open()
+        else -- 只读模式
+            db:open_read_only()
         end
+    elseif db and db:loaded() and mode then
+        log.warning(string.format("[super_tips] reopen in write mode"))
     end
 
     return db, close
@@ -72,46 +68,70 @@ local function calculate_file_hash(filepath)
     if not file then return nil end
 
     -- FNV-1a 哈希参数（32位）
-    local FNV_OFFSET_BASIS = 2166136261
-    local FNV_PRIME = 16777619
+    local FNV_OFFSET_BASIS = 0x811C9DC5
+    local FNV_PRIME = 0x01000193
 
-    local hash = FNV_OFFSET_BASIS
-
-    -- 位运算兼容处理
-    local function xor(a, b)
-        local res, p = 0, 1
-        while a > 0 or b > 0 do
-            local ab = (a % 2 + b % 2) % 2
-            res = res + ab * p
-            a = math.floor(a / 2)
-            b = math.floor(b / 2)
-            p = p * 2
-        end
-        return res
-    end
-
-    local function band(a, b)
-        local res, p = 0, 1
+    local bit_xor = function(a, b)
+        local p, c = 1, 0
         while a > 0 and b > 0 do
-            if (a % 2 == 1) and (b % 2 == 1) then
-                res = res + p
-            end
-            a = math.floor(a / 2)
-            b = math.floor(b / 2)
-            p = p * 2
+            local ra, rb = a % 2, b % 2
+            if ra ~= rb then c = c + p end
+            a, b, p = (a - ra) / 2, (b - rb) / 2, p * 2
         end
-        return res
+        if a < b then a = b end
+        while a > 0 do
+            local ra = a % 2
+            if ra > 0 then c = c + p end
+            a, p = (a - ra) / 2, p * 2
+        end
+        return c
     end
 
-    while true do
-        local chunk = file:read(4096)
-        if not chunk then break end
-        for i = 1, #chunk do
-            local byte = string.byte(chunk, i)
-            hash = xor(hash, byte)
-            hash = (hash * FNV_PRIME) % 4294967296 -- 保证32位
-            hash = band(hash, 0xFFFFFFFF)
+    local bit_and = function(a, b)
+        local p, c = 1, 0
+        while a > 0 and b > 0 do
+            local ra, rb = a % 2, b % 2
+            if ra + rb > 1 then c = c + p end
+            a, b, p = (a - ra) / 2, (b - rb) / 2, p * 2
         end
+        return c
+    end
+
+    local function hash_compt()
+        local hash = FNV_OFFSET_BASIS
+        while true do
+            local chunk = file:read(4096)
+            if not chunk then break end
+            for i = 1, #chunk do
+                local byte = string.byte(chunk, i)
+                hash = bit_xor(hash, byte)
+                hash = (hash * FNV_PRIME) % 0x100000000
+                hash = bit_and(hash, 0xFFFFFFFF)
+            end
+        end
+        return hash
+    end
+
+    local function hash_native()
+        local hash = FNV_OFFSET_BASIS
+        while true do
+            local chunk = file:read(4096)
+            if not chunk then break end
+            for i = 1, #chunk do
+                local byte = string.byte(chunk, i)
+                hash = hash ~ byte
+                hash = hash * FNV_PRIME
+                hash = hash & 0xFFFFFFFF
+            end
+        end
+        return hash
+    end
+
+    local r, hash = pcall(hash_native)
+    if not r then
+        file:seek("set", 0)
+        hash = hash_compt()
+        log.info("[super_tips]：不支持位运算符，使用兼容 hash")
     end
 
     file:close()
@@ -242,12 +262,6 @@ end
 function S.init(env)
     local config = env.engine.schema.config
     S.tips_key = config:get_string("key_binder/tips_key")
-    local db = wrapLevelDb("lua/tips", false)
-end
-
-function S.fini()
-    local _, close_db = wrapLevelDb("lua/tips", false)
-    close_db()
 end
 
 function S.func(key, env)
