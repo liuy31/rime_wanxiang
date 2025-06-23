@@ -48,7 +48,7 @@ jobs:
         run: |
           echo "Processing cn_dicts with Python script..."
           pip install --upgrade pip
-          python custom/万象分包.py
+          python .github/workflows/scripts/万象分包.py
 
       # 6. 打包原有的 zh_dicts_pro 文件夹
       - name: Pack zh_dicts_pro
