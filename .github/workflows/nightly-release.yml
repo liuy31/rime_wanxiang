@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - 'cn_dicts/**'
+      - 'zh_dicts/**'
 
 concurrency: # 防止并发冲突
   group: nightly-release
@@ -64,7 +64,7 @@ jobs:
             exit 1
           fi
       # 7. 打包原有的 zh_dicts 文件夹
-      - name: Pack zh_dicts_pro
+      - name: Pack zh_dicts
         if: env.SKIP != 'true'
         run: |
           mkdir -p dist
