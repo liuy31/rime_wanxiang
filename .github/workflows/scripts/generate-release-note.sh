@@ -22,8 +22,22 @@ else
   PREVIOUS_VERSION=$(git tag --list "v*" --sort=-committerdate | grep -v beta | head -1)
 fi
 
+# 当前版本号从 GITHUB_REF 提取（形如 refs/tags/v1.2.3）
+VERSION="${GITHUB_REF##*/}"
+
+# 获取上一个非 beta tag（不等于当前 tag）
+PREVIOUS_VERSION=$(git tag --sort=-creatordate | grep -v beta | grep -v "^${VERSION}$" | head -n1)
+
+# fallback：若没有上一个 tag，则用首次 commit
+if [[ -z "$PREVIOUS_VERSION" ]]; then
+  PREVIOUS_VERSION=$(git rev-list --max-parents=0 HEAD)
+fi
+
+echo "生成 Release Note，当前版本：${VERSION}，上一版本：${PREVIOUS_VERSION}"
+
+# 格式化日志为 Markdown 列表项
 CHANGES=$(
-  git log --pretty="%s|[#%h]($REPO_URL/commit/%H)" "$PREVIOUS_VERSION"..."$VERSION" |
+  git log --pretty="%s|[#%h](${REPO_URL}/commit/%H)" "${PREVIOUS_VERSION}".."${VERSION}" |
   awk -F'|' '
     {
       msg=$1
@@ -42,6 +56,7 @@ CHANGES=$(
     }
   '
 )
+
 
 echo "生成 Release Note，当前版本：${VERSION}，上一版本：${PREVIOUS_VERSION}"
 echo "$CHANGES"
