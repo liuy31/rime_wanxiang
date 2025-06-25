@@ -17,7 +17,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 2
+          fetch-tags: false
+    
+      - name: Fetch current and previous tags only
+        run: |
+          git fetch origin "refs/tags/${GITHUB_REF#refs/tags/}"
+          git fetch --tags --depth=1
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
