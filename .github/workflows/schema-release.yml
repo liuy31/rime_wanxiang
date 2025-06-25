@@ -17,7 +17,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 20
+          fetch-depth: 30
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
