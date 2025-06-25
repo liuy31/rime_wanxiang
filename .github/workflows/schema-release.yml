@@ -17,27 +17,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0
           fetch-tags: false
-    
-      - name: Fetch current and previous tag
-        run: |
-          set -ex
-          CURRENT_TAG=${GITHUB_REF#refs/tags/}
-          echo "当前 tag: $CURRENT_TAG"
-        
-          git fetch origin "refs/tags/${CURRENT_TAG}" --depth=1
-        
-          PREVIOUS_TAG=$(git tag --sort=-creatordate | grep -v beta | grep -v "^${CURRENT_TAG}$" | head -n1)
-          echo "上一 tag: $PREVIOUS_TAG"
-        
-          if [[ -n "$PREVIOUS_TAG" ]]; then
-            git fetch origin "refs/tags/${PREVIOUS_TAG}" --depth=1
-          else
-            echo "没有找到上一 tag，跳过 fetch"
-          fi
-        
-        
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
