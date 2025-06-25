@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# 显示名称映射
+# ======= 配置辅助信息 =======
 declare -A display_names=(
   [zrm]="自然码"
   [moqi]="墨奇"
@@ -12,25 +12,25 @@ declare -A display_names=(
   [tiger]="虎码首末"
 )
 
-# 仓库 URL
 REPO_URL=${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}
 DOWNLOAD_URL=${REPO_URL}/releases/download/${TAG_VERSION}
 
-# 当前 tag
+# ======= 当前版本（当前 Tag） =======
 VERSION="${GITHUB_REF##*/}"
 
-# 获取上一个非 beta tag（不等于当前 tag）
+# ======= 提取上一个版本（只 fetch 一个 tag 提速） =======
+# 获取上一个 tag 名（不含 beta，按时间倒序）
+git fetch --tags --depth=1
 PREVIOUS_VERSION=$(git tag --sort=-creatordate | grep -v beta | grep -v "^${VERSION}$" | head -n1)
 
-# fallback：若没有上一个 tag，则用首次 commit
+# fallback：没有 tag 则取初始提交
 if [[ -z "$PREVIOUS_VERSION" ]]; then
-  echo "未找到上一个正式版本，使用初始提交作为起点。"
   PREVIOUS_VERSION=$(git rev-list --max-parents=0 HEAD)
 fi
 
 echo "生成 Release Note，当前版本：${VERSION}，上一版本：${PREVIOUS_VERSION}"
 
-# 格式化日志为 Markdown 列表项
+# ======= 提取 CHANGES（仅这两个 tag 之间）=======
 CHANGES=$(
   git log --pretty="%s|[#%h](${REPO_URL}/commit/%H)" "${PREVIOUS_VERSION}".."${VERSION}" |
   awk -F'|' '
@@ -52,10 +52,9 @@ CHANGES=$(
   '
 )
 
-# 输出日志到终端
+echo "生成 Release Note，当前版本：${VERSION}，上一版本：${PREVIOUS_VERSION}"
 echo "$CHANGES"
 
-# 写入 release_notes.md
 {
   echo "## ✅ 万象更新"
   echo ""
@@ -68,7 +67,6 @@ echo "$CHANGES"
   echo "### 2. 双拼辅助码增强版输入方案"
   echo ""
   echo "✨**适用类型：** 支持各种双拼+辅助码的自由组合"
-  echo ""
 
   for type in "${!display_names[@]}"; do
     name="${display_names[$type]}"

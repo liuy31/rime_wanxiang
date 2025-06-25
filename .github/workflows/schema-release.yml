@@ -18,8 +18,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          fetch-tags: true
-
+          fetch-tags: false
+      - name: Fetch current & previous tag manually
+        run: |
+          git fetch --tags --depth=1
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
