@@ -1,38 +1,23 @@
 #!/bin/bash
 set -e
 
-# ======= 配置辅助信息 =======
-declare -A display_names=(
-  [zrm]="自然码"
-  [moqi]="墨奇"
-  [flypy]="小鹤"
-  [jdh]="简单鹤"
-  [hanxin]="汉心"
-  [wubi]="五笔前2"
-  [tiger]="虎码首末"
-)
-
 REPO_URL=${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}
-DOWNLOAD_URL=${REPO_URL}/releases/download/${TAG_VERSION}
-
-# ======= 当前版本（当前 Tag） =======
 VERSION="${GITHUB_REF##*/}"
 
-# ======= 提取上一个版本（只 fetch 一个 tag 提速） =======
-# 获取上一个 tag 名（不含 beta，按时间倒序）
-git fetch --tags --depth=1
+# 获取上一个非 beta tag，排除当前 tag
 PREVIOUS_VERSION=$(git tag --sort=-creatordate | grep -v beta | grep -v "^${VERSION}$" | head -n1)
 
-# fallback：没有 tag 则取初始提交
+# fallback：若没有上一个 tag，则使用第一个提交
 if [[ -z "$PREVIOUS_VERSION" ]]; then
   PREVIOUS_VERSION=$(git rev-list --max-parents=0 HEAD)
 fi
 
-echo "生成 Release Note，当前版本：${VERSION}，上一版本：${PREVIOUS_VERSION}"
+echo "当前版本：${VERSION}"
+echo "上一版本：${PREVIOUS_VERSION}"
 
-# ======= 提取 CHANGES（仅这两个 tag 之间）=======
+# 获取两个 tag 之间的 commit 信息
 CHANGES=$(
-  git log --pretty="%s|[#%h](${REPO_URL}/commit/%H)" "${PREVIOUS_VERSION}".."${VERSION}" |
+  git log --pretty="%s|[#%h](${REPO_URL}/commit/%H)" "${PREVIOUS_VERSION}..${VERSION}" |
   awk -F'|' '
     {
       msg=$1
@@ -51,8 +36,6 @@ CHANGES=$(
     }
   '
 )
-
-echo "生成 Release Note，当前版本：${VERSION}，上一版本：${PREVIOUS_VERSION}"
 echo "$CHANGES"
 
 {
