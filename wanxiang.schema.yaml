@@ -384,11 +384,11 @@ key_binder:
 #当输入编码后发现没有词，则通过双击``进入造词模式而且不需要删除编码，这个功能与``直接引导相呼应相配合
     - { match: "^.*`$", accept: "`", send_sequence: '{BackSpace}{Home}{`}{`}{End}' }
 #Lua实现无法在手机上使用具有延迟循环问题
-#故而采用按键矩阵来实现声调回退功能，声调辅助回退，当你输入声调数字错误时，继续输入正确的而不用回退删除
-    - { accept: "7", match: ".+[7890]", send_sequence: "{BackSpace}7" }
-    - { accept: "8", match: ".+[7890]", send_sequence: "{BackSpace}8" }
-    - { accept: "9", match: ".+[7890]", send_sequence: "{BackSpace}9" }
-    - { accept: "0", match: ".+[7890]", send_sequence: "{BackSpace}0" }
+#故而采用按键矩阵来实现声调回退功能，声调辅助回退，当你输入声调数字错误时，继续输入正确的而不用回退删除例如：ni8按下9就变成ni9
+    - { accept: "7", match: ".+[7890].*", send_sequence: "{BackSpace}7" }
+    - { accept: "8", match: ".+[7890].*", send_sequence: "{BackSpace}8" }
+    - { accept: "9", match: ".+[7890].*", send_sequence: "{BackSpace}9" }
+    - { accept: "0", match: ".+[7890].*", send_sequence: "{BackSpace}0" }
 #① 翻页 , .
     # - { when: paging, accept: comma, send: Page_Up }
     # - { when: has_menu, accept: period, send: Page_Down }
