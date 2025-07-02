@@ -1,3 +1,6 @@
+-- 欢迎使用万象拼音方案
+-- @amzxyz
+-- https://github.com/amzxyz/rime_wanxiang
 -- 检查系统类型
 -- 各类 rime 前端详见：https://rime.im/download/
 -- 输入法           code_name   OS
