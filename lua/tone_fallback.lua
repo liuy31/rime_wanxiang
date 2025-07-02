@@ -1,4 +1,6 @@
---@amzxyz https://github.com/amzxyz
+-- 欢迎使用万象拼音方案
+-- @amzxyz
+-- https://github.com/amzxyz/rime_wanxiang
 --用来在声调辅助的时候当你输入2个数字的时候自动将声调替换为第二个数字，
 --也就是说你发现输入错误声调你可以手动轮巡输入而不用回退删除直接输入下一个即可
 local function tone_fallback(_, env)
