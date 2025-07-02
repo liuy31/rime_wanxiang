@@ -1,7 +1,6 @@
 -- 欢迎使用万象拼音方案
 -- @amzxyz
 -- https://github.com/amzxyz/rime_wanxiang
--- https://github.com/amzxyz/rime_wanxiang_pro
 -- 本lua通过定义一个不直接上屏的引导符号;搭配[a-z0-1]实现快速符号输入，并在双击;;重复上屏上次提交的内容
 -- 使用方式加入到函数 - lua_processor@*quick_symbol_text 下面
 -- 方案文件配置：
