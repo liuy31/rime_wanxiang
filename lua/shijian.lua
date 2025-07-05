@@ -2263,7 +2263,7 @@ local function set_prompt_if_invalid(context, msg)
     end
 end
 local function translator(input, seg, env)
-    local engine  = env.engine
+    local engine = env.engine
     local context = engine.context
     local config  = engine.schema.config
     if input:sub(1, 1) == "N" then
@@ -2271,37 +2271,39 @@ local function translator(input, seg, env)
         local yr = os.date("%Y")
 
         -- N0101–N1231（仅月日）
-        if #n == 4 then
+        if #n == 4 and n:match("^%d%d%d%d$") then
             local mm = tonumber(n:sub(1, 2))
             local dd = tonumber(n:sub(3, 4))
-            if not DateExists(yr, mm, dd) then
-                set_prompt_if_invalid(context, "〔日期不存在〕")
+            if mm and dd and mm >= 1 and mm <= 12 and dd >= 1 and dd <= 31 then
+                if not DateExists(yr, mm, dd) then
+                    set_prompt_if_invalid(context, "〔日期不存在〕")
+                    return
+                end
+                local mm_str = string.format("%02d", mm)
+                local dd_str = string.format("%02d", dd)
+                local date_str = yr .. mm_str .. dd_str .. "01"
+                local lunar = QueryLunarInfo(date_str)
+                if #lunar > 0 then
+                    local comment = string.format("〔%s〕", yr)
+                    local candidates = {
+                        { string.format("%d月%d日", mm, dd), comment }, --第一个候选标记一下年份
+                        { string.format("%02d月%02d日", mm, dd), "" }
+                    }
+                    local lunar_full = lunar[2][1]
+                    local lunar_md = lunar_full:gsub(".*%)", "")
+                    if lunar_md == lunar_full then
+                        local lunar_md = lunar_full:gsub("^.-年", ""):gsub("^.-%)", "")
+                    end
+                    table.insert(candidates, { lunar_md, "" })
+
+                    local gz_full = lunar[3][1]
+                    local gz_md = gz_full:gsub("^.-年", "")
+                    table.insert(candidates, { gz_md, "" })
+
+                    generate_candidates(input, seg, candidates)
+                end
                 return
             end
-            local mm_str = string.format("%02d", mm)
-            local dd_str = string.format("%02d", dd)
-            local date_str = yr .. mm_str .. dd_str .. "01"
-            local lunar = QueryLunarInfo(date_str)
-            if #lunar > 0 then
-                local comment = string.format("〔%s〕", yr)
-                local candidates = {
-                    { string.format("%d月%d日", mm, dd), comment }, --第一个候选标记一下年份
-                    { string.format("%02d月%02d日", mm, dd), "" }
-                }
-                local lunar_full = lunar[2][1]
-                local lunar_md = lunar_full:gsub(".*%)", "")
-                if lunar_md == lunar_full then
-                    local lunar_md = lunar_full:gsub("^.-年", ""):gsub("^.-%)", "")
-                end
-                table.insert(candidates, { lunar_md, "" })
-
-                local gz_full = lunar[3][1]
-                local gz_md = gz_full:gsub("^.-年", "")
-                table.insert(candidates, { gz_md, "" })
-
-                generate_candidates(input, seg, candidates)
-            end
-            return
         end
 
         -- N2025 或 N20250101 等
