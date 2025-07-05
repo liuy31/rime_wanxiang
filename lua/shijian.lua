@@ -2244,52 +2244,77 @@ local function generate_candidates(input, seg, candidates)
         yield(candidate)
     end
 end
+-- 判断指定年月日是否合法
+local function DateExists(year, month, day)
+    local days
+    if IsLeap(year) > 365 then
+        days = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 }
+    else
+        days = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 }
+    end
+    return month >= 1 and month <= 12 and day >= 1 and day <= days[month]
+end
 
+-- 设置 segment 提示
+local function set_prompt_if_invalid(context, msg)
+    local segment = context.composition:back()
+    if segment then
+        segment.prompt = msg
+    end
+end
 local function translator(input, seg, env)
-    local engine = env.engine
+    local engine  = env.engine
     local context = engine.context
-    local config = engine.schema.config
-
-    -- **N日期**
+    local config  = engine.schema.config
     if input:sub(1, 1) == "N" then
-        local n  = input:sub(2)
+        local n = input:sub(2)
         local yr = os.date("%Y")
 
-        -- N0101–N1231（当年月日）
+        -- N0101–N1231（仅月日）
         if #n == 4 then
             local mm = tonumber(n:sub(1, 2))
             local dd = tonumber(n:sub(3, 4))
-            if mm and dd and mm >= 1 and mm <= 12 and dd >= 1 and dd <= 31 then
-                local mm_str = string.format("%02d", mm)
-                local dd_str = string.format("%02d", dd)
-                local date_str = yr .. mm_str .. dd_str .. "01"
-
-                local lunar = QueryLunarInfo(date_str)
-                if #lunar > 0 then
-                    local candidates = {}
-                    -- 公历 2 种形式
-                    table.insert(candidates, { string.format("%d月%d日", mm, dd), "" })
-                    table.insert(candidates, { string.format("%02d月%02d日", mm, dd), "" })
-                    -- 农历（去除年份与生肖）
-                    local lunar_full = lunar[2][1]
-                    local lunar_md = lunar_full:gsub(".*%)", "")
-                    if lunar_md == lunar_full then
-                        lunar_md = lunar_md:gsub("^[^年]+年", "")
-                    end
-                    table.insert(candidates, { lunar_md, "" })
-
-                    -- 干支纪时
-                    local gz_full = lunar[3][1]
-                    local gz_md = gz_full:gsub("^[^年]+年", "")
-                    table.insert(candidates, { gz_md, "" })
-                    generate_candidates(input, seg, candidates)
-                end
+            if not DateExists(yr, mm, dd) then
+                set_prompt_if_invalid(context, "〔日期不存在〕")
                 return
             end
+            local mm_str = string.format("%02d", mm)
+            local dd_str = string.format("%02d", dd)
+            local date_str = yr .. mm_str .. dd_str .. "01"
+            local lunar = QueryLunarInfo(date_str)
+            if #lunar > 0 then
+                local comment = string.format("〔%s〕", yr)
+                local candidates = {
+                    { string.format("%d月%d日", mm, dd), comment }, --第一个候选标记一下年份
+                    { string.format("%02d月%02d日", mm, dd), "" }
+                }
+                local lunar_full = lunar[2][1]
+                local lunar_md = lunar_full:gsub(".*%)", "")
+                if lunar_md == lunar_full then
+                    lunar_md = lunar_md:gsub("^[^年]+年", "")
+                end
+                table.insert(candidates, { lunar_md, "" })
+
+                local gz_full = lunar[3][1]
+                local gz_md = gz_full:gsub("^[^年]+年", "")
+                table.insert(candidates, { gz_md, "" })
+
+                generate_candidates(input, seg, candidates)
+            end
+            return
         end
 
-        --  N2025 / N19990101（传统完整日期处理）
+        -- N2025 或 N20250101 等
         if n:match("^(20)%d%d") or n:match("^(19)%d%d") then
+            if #n >= 8 then
+                local yyyy = tonumber(n:sub(1, 4))
+                local mm = tonumber(n:sub(5, 6))
+                local dd = tonumber(n:sub(7, 8))
+                if not DateExists(yyyy, mm, dd) then
+                    set_prompt_if_invalid(context, "〔日期不存在〕")
+                    return
+                end
+            end
             local lunar = QueryLunarInfo(n)
             local candidates = {}
             for i = 1, #lunar do
