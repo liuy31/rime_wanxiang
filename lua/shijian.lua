@@ -2251,19 +2251,53 @@ local function translator(input, seg, env)
     local config = engine.schema.config
 
     -- **N日期**
-    if string.sub(input, 1, 1) == "N" then
-        local n = string.sub(input, 2)
-        if not (string.match(n, "^(20)%d%d+$") == nil and string.match(n, "^(19)%d%d+$") == nil) then
-            local lunar = QueryLunarInfo(n)
-            if #lunar > 0 then
-                for i = 1, #lunar do
-                    local candidate = Candidate(input, seg.start, seg._end, lunar[i][1], lunar[i][2])
-                    candidate.quality = 1000000
-                    yield(candidate)
+    if input:sub(1, 1) == "N" then
+        local n  = input:sub(2)
+        local yr = os.date("%Y")
+
+        -- N0101–N1231（当年月日）
+        if #n == 4 then
+            local mm = tonumber(n:sub(1, 2))
+            local dd = tonumber(n:sub(3, 4))
+            if mm and dd and mm >= 1 and mm <= 12 and dd >= 1 and dd <= 31 then
+                local mm_str = string.format("%02d", mm)
+                local dd_str = string.format("%02d", dd)
+                local date_str = yr .. mm_str .. dd_str .. "01"
+
+                local lunar = QueryLunarInfo(date_str)
+                if #lunar > 0 then
+                    local candidates = {}
+                    -- 公历 2 种形式
+                    table.insert(candidates, { string.format("%d月%d日", mm, dd), "" })
+                    table.insert(candidates, { string.format("%02d月%02d日", mm, dd), "" })
+                    -- 农历（去除年份与生肖）
+                    local lunar_full = lunar[2][1]
+                    local lunar_md = lunar_full:gsub(".*%)", "")
+                    if lunar_md == lunar_full then
+                        lunar_md = lunar_md:gsub("^[^年]+年", "")
+                    end
+                    table.insert(candidates, { lunar_md, "" })
+
+                    -- 干支纪时
+                    local gz_full = lunar[3][1]
+                    local gz_md = gz_full:gsub("^[^年]+年", "")
+                    table.insert(candidates, { gz_md, "" })
+                    generate_candidates(input, seg, candidates)
                 end
+                return
             end
         end
-        return
+
+        --  N2025 / N19990101（传统完整日期处理）
+        if n:match("^(20)%d%d") or n:match("^(19)%d%d") then
+            local lunar = QueryLunarInfo(n)
+            local candidates = {}
+            for i = 1, #lunar do
+                table.insert(candidates, { lunar[i][1], lunar[i][2] })
+            end
+            generate_candidates(input, seg, candidates)
+            return
+        end
     end
 
     -- 以下为需要通过 shijian_keys 触发的功能
