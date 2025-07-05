@@ -2291,12 +2291,12 @@ local function translator(input, seg, env)
                 local lunar_full = lunar[2][1]
                 local lunar_md = lunar_full:gsub(".*%)", "")
                 if lunar_md == lunar_full then
-                    lunar_md = lunar_md:gsub("^[^年]+年", "")
+                    local lunar_md = lunar_full:gsub("^.-年", ""):gsub("^.-%)", "")
                 end
                 table.insert(candidates, { lunar_md, "" })
 
                 local gz_full = lunar[3][1]
-                local gz_md = gz_full:gsub("^[^年]+年", "")
+                local gz_md = gz_full:gsub("^.-年", "")
                 table.insert(candidates, { gz_md, "" })
 
                 generate_candidates(input, seg, candidates)
