@@ -2,7 +2,7 @@
 # encoding: utf-8
 #
 # copy from /Library/Input Methods/Squirrel.app/Contents/SharedSupport/symbols.yaml
-# version: 2023-04-11
+# version: LTS
 symbol_table:
   full_shape:
     ' ' : { commit: '　' }

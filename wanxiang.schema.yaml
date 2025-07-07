@@ -17,7 +17,7 @@ __include: octagram             #启用语言模型
 schema:
   schema_id: wanxiang
   name: 万象拼音
-  version: "2024-11-11"
+  version: "LTS"
   author:
     - amzxyz
   description: |
