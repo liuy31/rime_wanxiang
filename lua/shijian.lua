@@ -1961,8 +1961,10 @@ local solar_holidays = {
     ["高考第二天"] = "0608",
     ["高考第三天"] = "0609",
     ["建党节"] = "0701",
+    ["七七事变"] = "0707",
     ["建军节"] = "0801",
     ["教师节"] = "0910",
+    ["国家公祭日"] = "0918",
     ["国庆节"] = "1001",
     -- 国际通用节日
     ["平安夜"] = "1224",
@@ -2737,14 +2739,14 @@ local function translator(input, seg, env)
         local line = generate_line(14) -- 控制符号线的宽度为 50
         -- 生成最终信息字符串
         local summary = string.format("※嗨，我是万象小助手，%s\n", greeting) .. line .. "\n" ..
-            string.format("☉今天是：%s %s\n", zero_holiday or "", zero_jieqi or "") ..
-            string.format("☉%d年%d月%d日 %s\n", year, month, day, week_day_str) ..
-            string.format("☉农历：%s\n", lunar_info_str) .. line .. "\n" ..
-            string.format("◉%d进度：\n", year) .. string.format("◈%s\n", progress_bar) ..
-            string.format("◈本年第[ %d ]周，本月第[ %d ]周\n", week_of_year, week_of_month) ..
-            string.format("◈距 %d 年： [ %d ]天\n", next_year, diff_days_next_year) ..
-            string.format("◈今年已过[ %d ]天\n", day_of_year - 1) ..
-            string.format("◈今天是第[ %d ]天\n", day_of_year) .. line .. "\n" ..
+            string.format("☉ 今天是：%s %s\n", zero_holiday or "", zero_jieqi or "") ..
+            string.format("☉ %d年%d月%d日 %s\n", year, month, day, week_day_str) ..
+            string.format("☉ 农历：%s\n", lunar_info_str) .. line .. "\n" ..
+            string.format("◉ %d进度：\n", year) .. string.format("◈%s\n", progress_bar) ..
+            string.format("◈ 本年第[ %d ]周，本月第[ %d ]周\n", week_of_year, week_of_month) ..
+            string.format("◈ 距 %d 年： [ %d ]天\n", next_year, diff_days_next_year) ..
+            string.format("◈ 今年已过[ %d ]天\n", day_of_year - 1) ..
+            string.format("◈ 今天是第[ %d ]天\n", day_of_year) .. line .. "\n" ..
             string.format("◉ 倒数日：\n") ..
             string.format("◈ %s %s < [ %d ]天\n", holiday_data[1][1], holiday_data[1][2],
                 holiday_data[1][3]) ..
