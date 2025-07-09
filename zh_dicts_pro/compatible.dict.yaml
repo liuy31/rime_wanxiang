@@ -7,6 +7,7 @@ name: compatible
 version: "LTS"
 sort: by_weight
 ...
+结果	jiē;sk;sk;sj;eo;id;xf;sk guǒ;tm;ln;ad,tm;vw;qe;js;an
 看不了	kàn;uo;uo;ou,uo;us;uq;rh;pm bù;ab;ad;ad,ax;dh;cb;gi;ad le;al;vl;aa,vu;rp;rl;bn;vv	259
 卡住	qiǎ;ub;ub;bx,ub;ph;yy;hh;ub zhù;rv;rv;rv;xg;jn;wy;rv	433
 睡着	shuì;ot;oi;oi;sg;qg;ht;mi zhe;yo;yo;yo;fs;gq;ud;em
@@ -1228,7 +1229,7 @@ sort: by_weight
 这个冷	zhèi;zw;zw;zw;jq;vu;yp;zx ge;rl;rl;ra,pa;ep;jg;wh;ra lěng;ds;ds;dl;fp;wk;uw;dv	387
 这个理	zhèi;zw;zw;zw;jq;vu;yp;zx ge;rl;rl;ra,pa;ep;jg;wh;ra lǐ;wl;wl;wl;ag;nd;gj;wl	413
 这个列	zhèi;zw;zw;zw;jq;vu;yp;zx ge;rl;rl;ra,pa;ep;jg;wh;ra liè;dd;dd;dd;fi;gp;gq;dd	210
-这个龙	zhèi;zw;zw;zw;jq;vu;yp;zx ge;rl;rl;ra,pa;ep;jg;wh;ra lóng;yp;ul;ad;sh;tl;dx;ab	255
+这个龙	zhèi;zw;zw;zw;jq;vu;yp;zx ge;rl;rl;ra,pa;ep;jg;wh;ra lóng;yp;ud;ad;sh;tl;dx;ab	255
 这个楼	zhèi;zw;zw;zw;jq;vu;yp;zx ge;rl;rl;ra,pa;ep;jg;wh;ra lóu;mn;mn;ml;wy;eb;so;ln	397
 这个嘛	zhèi;zw;zw;zw;jq;vu;yp;zx ge;rl;rl;ra,pa;ep;jg;wh;ra ma;km;km;km;ow;dz;ky;kl	478
 这个吗	zhèi;zw;zw;zw;jq;vu;yp;zx ge;rl;rl;ra,pa;ep;jg;wh;ra ma;km;km;km;oz;dn;kc;km	456
@@ -1754,7 +1755,7 @@ sort: by_weight
 这条河	zhèi;zw;zw;zw;jq;vu;yp;zx tiáo;wm;wm;wm;jf;he;ts;wx hé;dk;dk;dk;kj;kz;is;dk	445
 这条件	zhèi;zw;zw;zw;jq;vu;yp;zx tiáo;wm;wm;wm;jf;he;ts;wx jiàn;rn;rn;rn;xb;jq;wr;rn	390
 这条街	zhèi;zw;zw;zw;jq;vu;yp;zx tiáo;wm;wm;wm;jf;he;ts;wx jiē;rt;ii;xg,xi;hp;pg;tf;rd	561
-这条龙	zhèi;zw;zw;zw;jq;vu;yp;zx tiáo;wm;wm;wm;jf;he;ts;wx lóng;yp;ul;ad;sh;tl;dx;ab	338
+这条龙	zhèi;zw;zw;zw;jq;vu;yp;zx tiáo;wm;wm;wm;jf;he;ts;wx lóng;yp;ud;ad;sh;tl;dx;ab	338
 这条路	zhèi;zw;zw;zw;jq;vu;yp;zx tiáo;wm;wm;wm;jf;he;ts;wx lù;zk;zk;zg;go;ps;kh;zk	651
 这条命	zhèi;zw;zw;zw;jq;vu;yp;zx tiáo;wm;wm;wm;jf;he;ts;wx mìng;re;re;re;eb;jz;wg;re	409
 这条线	zhèi;zw;zw;zw;jq;vu;yp;zx tiáo;wm;wm;wm;jf;he;ts;wx xiàn;sj;sj;sj;ea;ip;xg;sg	537
@@ -4279,7 +4280,7 @@ sort: by_weight
 两个立	liǎng;ar;ad;ad;de;ml;gm;ad gè;rl;rl;ra,pa;ep;jg;wh;ra lì;wb;wa;da;bb;il;uu;wa	1
 两个隶	liǎng;ar;ad;ad;de;ml;gm;ad gè;rl;rl;ra,pa;ep;jg;wh;ra lì;yu;vn;ad,vd,vu,yd;so;bk;vi;vn	1
 两个龍	liǎng;ar;ad;ad;de;ml;gm;ad gè;rl;rl;ra,pa;ep;jg;wh;ra lóng;lv;lv;dg,lg;bu;tl;ue;	1
-两个龙	liǎng;ar;ad;ad;de;ml;gm;ad gè;rl;rl;ra,pa;ep;jg;wh;ra lóng;yp;ul;ad;sh;tl;dx;ab	1
+两个龙	liǎng;ar;ad;ad;de;ml;gm;ad gè;rl;rl;ra,pa;ep;jg;wh;ra lóng;yp;ud;ad;sh;tl;dx;ab	1
 两个马	liǎng;ar;ad;ad;de;ml;gm;ad gè;rl;rl;ra,pa;ep;jg;wh;ra mǎ;va;va;aa,vh;zz;nm;cn;va	1
 两个馬	liǎng;ar;ad;ad;de;ml;gm;ad gè;rl;rl;ra,pa;ep;jg;wh;ra mǎ;mh;am;ah;;nm;cg;	1
 两个毛	liǎng;ar;ad;ad;de;ml;gm;ad gè;rl;rl;ra,pa;ep;jg;wh;ra máo;pv;pv;pg;ua;vm;tf;pv	1
@@ -4806,8 +4807,8 @@ sort: by_weight
 老罗人称大力罗	lǎo;lb;lb;bl,lb;ga;ql;ft;ub luó;sx;sx;sx;af;yl;lq;sx rén;pn;pn;pd;ee;jr;ww;pn chēng;hx;hx;he;uf;xy;tq;hx dà;ar;un;ad;xx;md;dd;an lì;vp;vp;gp;uu;sl;lt;vp luó;sx;sx;sx;af;yl;lq;sx	1
 里头有堆羊骨头	lǐ;tt;la;aa,tt;vg;dl;jf;aa tou;dd;dd;dd;hx;wm;ud;dd yǒu;uo;uo;ou,uo;sl;nv;de;ao duī;tv;tf;tv;ga;gu;fw;ta yáng;bf;bl;da;fp;gy;ud;ea gǔ;go;lo;go,ob,og;cc;fg;me;ao tou;dd;dd;dd;hx;wm;ud;dd	1
 两个乐得笑哈哈	liǎng;ar;ad;ad;de;ml;gm;ad gè;rl;rl;ra,pa;ep;jg;wh;ra lè;px;pd;pd,px;uf;by;qi;pd de;rc;ic;xc;hk;wk;tj;rc xiào;vy;vy;vy;nx;rm;tt;vy hā;kk;kk;kh;oo;dd;kw;kk hā;kk;kk;kh;oo;dd;kw;kk	1
-龙洞困龙在深洞	lóng;yp;ul;ad;sh;tl;dx;ab dòng;dk;dk;dt;ko;kd;im;dk kùn;km;km;km;nw;re;ls;wl lóng;yp;ul;ad;sh;tl;dx;ab zài;ut;ut;ta,ut;sg;ng;dh;at shēn;dm;dm;dm;kw;ke;ip;dl dòng;dk;dk;dt;ko;kd;im;dk	1
-龙去农田做农工	lóng;yp;ul;ad;sh;tl;dx;ab qù;ts;ts;ts;gp;gk;fc;tv nóng;by;dn;by,ny;ih;wt;pe;dh tián;ku;ku;aa;ww;qt;ll;wu zuò;rw;rw;rg;xj;jh;wd;rw nóng;by;dn;by,ny;ih;wt;pe;dh gōng;aa;aa;aa;pp;ug;aa;aa	1
+龙洞困龙在深洞	lóng;yp;ud;ad;sh;tl;dx;ab dòng;dk;dk;dt;ko;kd;im;dk kùn;km;km;km;nw;re;ls;wl lóng;yp;ud;ad;sh;tl;dx;ab zài;ut;ut;ta,ut;sg;ng;dh;at shēn;dm;dm;dm;kw;ke;ip;dl dòng;dk;dk;dt;ko;kd;im;dk	1
+龙去农田做农工	lóng;yp;ud;ad;sh;tl;dx;ab qù;ts;ts;ts;gp;gk;fc;tv nóng;by;dn;by,ny;ih;wt;pe;dh tián;ku;ku;aa;ww;qt;ll;wu zuò;rw;rw;rg;xj;jh;wd;rw nóng;by;dn;by,ny;ih;wt;pe;dh gōng;aa;aa;aa;pp;ug;aa;aa	1
 吕教练是男教练	lǚ;kk;kk;kk;oo;dd;kk;kk jiào;lw;lw;wx;gj;qh;ft;uw liàn;sd;sd;sd,sj;ef;iy;xa;sd shì;oz;or;op,ov;ve;ot;jg;or nán;tl;tl;tl;wu;qs;ll;tl jiào;lw;lw;wx;gj;qh;ft;uw liàn;sd;sd;sd,sj;ef;iy;xa;sd	1
 吕楠是女篮主力	lǚ;kk;kk;kk;oo;dd;kk;kk nán;mg;mg;mn;wp;eg;sf;lu shì;oz;or;op,ov;ve;ot;jg;or nǚ;va;va;aa,vh;yy;bn;vv;va lán;vm;vm;vj;na;ra;tj;vm zhǔ;wt;dw;dw;ha;in;yg;wt lì;vp;vp;gp;uu;sl;lt;vp	1
 妈妈见了笑哈哈	mā;nm;nm;nm;yz;bn;vc;nm ma;nm;nm;nm;yz;bn;vc;nm jiàn;ke;ke;ag,ek,ke;pr;ej;mq;av le;al;vl;aa,vu;rp;rl;bn;vv xiào;vy;vy;vy;nx;rm;tt;vy hā;kk;kk;kh;oo;dd;kw;kk hā;kk;kk;kh;oo;dd;kw;kk	1
@@ -4838,8 +4839,8 @@ sort: by_weight
 坡下就是一条河	pō;tp;ty;tp;gl;gr;fh;ty xià;ab;ab;ab,ad;dh;fy;gh;ab jiù;wy;wy;yj;ih;go;yi;wy shì;oz;or;op,ov;ve;ot;jg;or yì;aa;aa;aa;dd;fi;gg;aa tiáo;wm;wm;wm;jf;he;ts;wx hé;dk;dk;dk;kj;kz;is;dk	1
 坡下流着一条河	pō;tp;ty;tp;gl;gr;fh;ty xià;ab;ab;ab,ad;dh;fy;gh;ab liú;di;dv;di;kr;ko;iy;dv zhe;yo;yo;yo;fs;gq;ud;em yì;aa;aa;aa;dd;fi;gg;aa tiáo;wm;wm;wm;jf;he;ts;wx hé;dk;dk;dk;kj;kz;is;dk	1
 桥西走来一只猴	qiáo;ml;ml;mq;wp;ep;st;lq xī;ak,wk;aa;aa;pp;vx;sg;aa zǒu;tz;tr;tv;ge;pz;fh;tr lái;am;an;am,wb;dl;ah;go;an yì;aa;aa;aa;dd;fi;gg;aa zhī;kb;kb;kb;of;dh;kw;kb hóu;qu;qu;qh;bx;mo;qt;qd	1
-青龙洞中涌出龙	qīng;fo;fo;of,fo;al;av;ge;ao lóng;yp;ul;ad;sh;tl;dx;ab dòng;dk;dk;dt;ko;kd;im;dk zhōng;kl;ll;aa,ka;op;dg;kh;aa yǒng;dy;dy;dy;kp;kt;ic;dy chū;uu;vk;ck,aa;pp;sm;bm;va lóng;yp;ul;ad;sh;tl;dx;ab	1
-青龙做梦出龙洞	qīng;fo;fo;of,fo;al;av;ge;ao lóng;yp;ul;ad;sh;tl;dx;ab zuò;rw;rw;rg;xj;jh;wd;rw mèng;mx;mx;mx,xl;wf;el;ss;lx chū;uu;vk;ck,aa;pp;sm;bm;va lóng;yp;ul;ad;sh;tl;dx;ab dòng;dk;dk;dt;ko;kd;im;dk	1
+青龙洞中涌出龙	qīng;fo;fo;of,fo;al;av;ge;ao lóng;yp;ud;ad;sh;tl;dx;ab dòng;dk;dk;dt;ko;kd;im;dk zhōng;kl;ll;aa,ka;op;dg;kh;aa yǒng;dy;dy;dy;kp;kt;ic;dy chū;uu;vk;ck,aa;pp;sm;bm;va lóng;yp;ud;ad;sh;tl;dx;ab	1
+青龙做梦出龙洞	qīng;fo;fo;of,fo;al;av;ge;ao lóng;yp;ud;ad;sh;tl;dx;ab zuò;rw;rw;rg;xj;jh;wd;rw mèng;mx;mx;mx,xl;wf;el;ss;lx chū;uu;vk;ck,aa;pp;sm;bm;va lóng;yp;ud;ad;sh;tl;dx;ab dòng;dk;dk;dt;ko;kd;im;dk	1
 山后有个崔腿粗	shān;kl;lk;aa;pp;vs;mm;aa hòu;ik;pk;pk;uo;xd;rg;pk yǒu;uo;uo;ou,uo;sl;nv;de;ao gè;rl;rl;ra,pa;ep;jg;wh;ra cuī;uv;ef;uv;pa;vu;mw;sa tuǐ;og;oz;ot;lq;vu;ev;oh cū;mq;mq;mq;lu;pf;oe;mq	1
 山后有个严眼圆	shān;kl;lk;aa;pp;vs;mm;aa hòu;ik;pk;pk;uo;xd;rg;pk yǒu;uo;uo;ou,uo;sl;nv;de;ao gè;rl;rl;ra,pa;ep;jg;wh;ra yán;ai;yp;ap,yp;dr;fx;go;ai yǎn;og;og;og;sh;qi;hv;mh yuán;kb;kr;ky;nm;ro;lk;wr	1
 山前有个崔粗腿	shān;kl;lk;aa;pp;vs;mm;aa qián;bd;bd;bd,qd;fi;hp;ue;ed yǒu;uo;uo;ou,uo;sl;nv;de;ao gè;rl;rl;ra,pa;ep;jg;wh;ra cuī;uv;ef;uv;pa;vu;mw;sa cū;mq;mq;mq;lu;pf;oe;mq tuǐ;og;oz;ot;lq;vu;ev;oh	1
@@ -4891,7 +4892,7 @@ sort: by_weight
 又画一个小喇叭	yòu;vn;vn;vd,ad;ll;ry;cc;vn huà;at;ak;ak;dp;fm;gl;aa yí;aa;aa;aa;dd;fi;gg;aa gè;rl;rl;ra,pa;ep;jg;wh;ra xiǎo;lb;ld;ad;pf;yx;ih;vd lǎ;kd;kd;kd,kl;oi;dp;kg;kd bā;kb;kb;kb;of;dh;kw;kb	1
 由于二人搞协作	yóu;ol,lt;la;aa,ao;vp;dy;mh;aa yú;au;al;aa;ss;fn;gf;av èr;aa;aa;aa;uu;me;fg;aa rén;pn;pn;pd;ee;jr;ww;pn gǎo;fk;fk;fg;jo;ug;ry;fk xié;ub;ub;ub;sf;nh;fl;ub zuò;rv;rv;rv;xu;jw;wt;rv	1
 鱼刺刺进齿缝里	yú;da;da;da;qq;wv;qg;ea cì;ud;ad;dc;di;ep;gm;ad cì;ud;ad;dc;di;ep;gm;ad jìn;zj;zj;zj;uq;qu;fj;zj chǐ;vr;vk;vk;rp;lc;hw;va fèng;sf;sz;sf;eq;iu;xt;sf lǐ;tt;la;aa,tt;vg;dl;jf;aa	1
-愚公捅开青龙洞	yú;tx;yx;xy;vn;qh;jm;ax gōng;bs;bs;sb,bs;fp;hk;wc;bv tǒng;fy;fy;fy;jp;ut;rc;fy kāi;ac;kc;ac;up;fl;ga;aa qīng;fo;fo;of,fo;al;av;ge;ao lóng;yp;ul;ad;sh;tl;dx;ab dòng;dk;dk;dt;ko;kd;im;dk	1
+愚公捅开青龙洞	yú;tx;yx;xy;vn;qh;jm;ax gōng;bs;bs;sb,bs;fp;hk;wc;bv tǒng;fy;fy;fy;jp;ut;rc;fy kāi;ac;kc;ac;up;fl;ga;aa qīng;fo;fo;of,fo;al;av;ge;ao lóng;yp;ud;ad;sh;tl;dx;ab dòng;dk;dk;dt;ko;kd;im;dk	1
 摘了蓝布棉门帘	zhāi;fg;fk;fd,fg;jo;uc;ru;fk le;al;vl;aa,vu;rp;rl;bn;vv lán;cm;cm;cj;za;la;aj;cm bù;uj;uj;ju,uj;sy;nr;dm;aj mián;mj;mj;mb,mj;wy;er;sr;lj mén;dv;dv;dg;oo;am;uy;dv lián;bj;bj;bj,jb,jx,xj;iy;er;pw;gj	1
 撞塌了蒋家的墙	zhuàng;fl;fl;ft;jg;ud;ru;fl tā;tx;tx;ty;gd;gz;fj;tx le;al;vl;aa,vu;rp;rl;bn;vv jiǎng;cc;cc;cj;zk;lk;au;cc jiā;bu;bu;bu;ih;wj;pe;gn de;bu;bu;bu;sh;ui;rq;bu qiáng;tk;tk;th;gd;gd;ff;tk	1
 桌上放块橡皮泥	zhuō;bm;lm;mo,bm;pw;ye;hj;al shàng;ba;la;aa,ba;pu;yf;hh;aa fàng;fw;fw;wf,fw;fj;lh;yt;fw kuài;tg;tg;td,tg;gx;gj;fn;tn xiàng;mu;mn;mx;wh;ew;sq;lx pí;py;vy;ad,ay,vd,vy,ya;rl;rp;hc;vy ní;db;db;dn;ka;kv;in;db	1
@@ -5013,7 +5014,7 @@ sort: by_weight
 每排是十四只大石狮子	měi;pm;pm;pm,rm;eh;ek;tx;pm pái;ff;ff;ff;jp;ur;rd;ff shì;oz;or;op,ov;ve;ot;jg;or shí;al;al;aa;ss;ns;fg;aa sì;ke;ke;aa,ke;nk;ys;lh;we zhǐ;kb;kb;kb;of;dh;kw;kb dà;ar;un;ad;xx;md;dd;an shí;ak;ak;kp,aa,ak,pk;tt;ms;dg;ak shī;qj;qj;qu;by;mr;qt;qj zi;la;va;aa,vh;aa;hi;bb;va	1
 嬷嬷拔了一笸箩大萝卜	mó;nm;nm;nm;yp;bk;vy;nm mó;nm;nm;nm;yp;bk;vy;nm bá;fy;fd;fb,fy;jh;ui;rd;fy le;al;vl;aa,vu;rp;rl;bn;vv yī;aa;aa;aa;dd;fi;gg;aa pǒ;vk;vk;vk,vp;nr;rd;ta;vk luó;vx;vx;vl;nf;rl;tl;vx dà;ar;un;ad;xx;md;dd;an luó;cx;cx;cl;zf;ll;al;cx bo;ld;ld;ad;ph;yb;hh;ad	1
 婆婆采了半簸箕小蘑菇	pó;dn;dn;nb;ky;kb;ih;dn pó;dn;dn;nb;ky;kb;ih;dn cǎi;vm;pm;mv,vm;hw;ye;es;pl le;al;vl;aa,vu;rp;rl;bn;vv bàn;bf;dl;bf;fs;hu;uf;da bò;vp;vy;vp;nl;rr;ta;vy ji;vb;vb;vq;nf;rh;ta;vb xiǎo;lb;ld;ad;pf;yx;ih;vd mó;cu;cu;cm;zt;lm;ay;ck gū;cg;ck;cg;zo;lc;av;ck	1
-青龙洞青龙洞中龙做梦	qīng;fo;fo;of,fo;al;av;ge;ao lóng;yp;ul;ad;sh;tl;dx;ab dòng;dk;dk;dt;ko;kd;im;dk qīng;fo;fo;of,fo;al;av;ge;ao lóng;yp;ul;ad;sh;tl;dx;ab dòng;dk;dk;dt;ko;kd;im;dk zhōng;kl;ll;aa,ka;op;dg;kh;aa lóng;yp;ul;ad;sh;tl;dx;ab zuò;rw;rw;rg;xj;jh;wd;rw mèng;mx;mx;mx,xl;wf;el;ss;lx	1
+青龙洞青龙洞中龙做梦	qīng;fo;fo;of,fo;al;av;ge;ao lóng;yp;ud;ad;sh;tl;dx;ab dòng;dk;dk;dt;ko;kd;im;dk qīng;fo;fo;of,fo;al;av;ge;ao lóng;yp;ud;ad;sh;tl;dx;ab dòng;dk;dk;dt;ko;kd;im;dk zhōng;kl;ll;aa,ka;op;dg;kh;aa lóng;yp;ud;ad;sh;tl;dx;ab zuò;rw;rw;rg;xj;jh;wd;rw mèng;mx;mx;mx,xl;wf;el;ss;lx	1
 上果市四个孩子上果市	shàng;ba;la;aa,ba;pu;yf;hh;aa guǒ;tm;ln;ad,tm;vw;qe;js;an shì;wj;wj;wj;iy;zr;ym;wj sì;ke;ke;aa,ke;nk;ys;lh;we gè;rl;rl;ra,pa;ep;jg;wh;ra hái;zr;zr;zh;ae;hk;by;zr zi;la;va;aa,vh;aa;hi;bb;va shàng;ba;la;aa,ba;pu;yf;hh;aa guǒ;tm;ln;ad,tm;vw;qe;js;an shì;wj;wj;wj;iy;zr;ym;wj	1
 是灯还是星天上满天星	shì;oz;or;op,ov;ve;ot;jg;or dēng;hd;hd;hd;tj;ca;os;hd hái;zb;zb;zb;dq;cu;gi;zb shì;oz;or;op,ov;ve;ot;jg;or xīng;ou;ou;ou;va;ol;jt;ou tiān;ad;ad;ad;ue;fm;gd;ad shàng;ba;la;aa,ba;pu;yf;hh;aa mǎn;dl;dl;dl;ke;km;ia;dl tiān;ad;ad;ad;ue;fm;gd;ad xīng;ou;ou;ou;va;ol;jt;ou	1
 梳胡子苏州有个苏胡子	shū;mi;mv;mi;wr;eo;sy;lv hú;go;uo;og;sl;cv;de;uo zi;la;va;aa,vh;aa;hi;bb;va sū;cb;cb;cb;zf;lh;al;cb zhōu;dl;dl;id,da;hp;oo;yt;da yǒu;uo;uo;ou,uo;sl;nv;de;ao gè;rl;rl;ra,pa;ep;jg;wh;ra sū;cb;cb;cb;zf;lh;al;cb hú;go;uo;og;sl;cv;de;uo zi;la;va;aa,vh;aa;hi;bb;va	1
