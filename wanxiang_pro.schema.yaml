@@ -245,7 +245,7 @@ generic:
   db_class: tabledb
   enable_sentence: false
   enable_completion: false
-  initial_quality: 1.3
+  initial_quality: 3.5
 
 
 # 简码词库导入位于jm_dicts得txt文件词库
