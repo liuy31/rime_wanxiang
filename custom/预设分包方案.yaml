@@ -231,7 +231,7 @@ translator:
 custom_phrase:
   dictionary: ""
   user_dict: custom_phrase  # 需要手动创建 custom_phrase.txt 文件
-  db_class: tabledb
+  db_class: stabledb
   enable_completion: false # 补全提示
   enable_sentence: false   # 禁止造句
   initial_quality: 99      # custom_phrase 的权重应该比 pinyin 和 wanxiang_en 大
@@ -240,7 +240,7 @@ custom_phrase:
 generic:
   dictionary: ""
   user_dict: jm_dicts/generic
-  db_class: tabledb
+  db_class: stabledb
   enable_sentence: false
   enable_completion: false
   initial_quality: 3.5
@@ -249,7 +249,7 @@ generic:
 chengyu:
   dictionary: ""
   user_dict: jm_dicts/chengyu
-  db_class: tabledb
+  db_class: stabledb
   enable_sentence: false
   enable_completion: false
   initial_quality: 1.2 #本表词和系统词重码居后
@@ -268,7 +268,7 @@ wanxiang_en:
 cn_en:
   dictionary: ""
   __include: set_cn_en
-  db_class: tabledb
+  db_class: stabledb
   enable_completion: true
   enable_sentence: false
   initial_quality: 0.5
@@ -319,7 +319,7 @@ radical_lookup:
 reverse_stroke:
   tag: reverse_stroke
   dictionary: wanxiang_stroke
-  db_class: tabledb
+  db_class: stabledb
   enable_completion: true
   suffix: "'"
   preedit_format:
